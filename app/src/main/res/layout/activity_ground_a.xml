@@ -7,13 +7,35 @@
     tools:context=".ground.A_Activity">
 
     <Button
-        android:id="@+id/btn_ground"
+        android:id="@+id/btn_start_normal_b"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:onClick="startB"
-        android:text="开启B Activity"
+        android:onClick="startNormal"
+        android:text="开启 B Activity"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_start_translate_b"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="startTranslate"
+        android:text="开启透明 B Activity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_start_normal_b" />
+
+    <Button
+        android:id="@+id/btn_start_task_b"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="startTask"
+        android:text="开启主线程任务繁重 B Activity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_start_translate_b" />
 </androidx.constraintlayout.widget.ConstraintLayout>

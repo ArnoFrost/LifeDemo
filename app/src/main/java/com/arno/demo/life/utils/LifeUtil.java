@@ -10,13 +10,13 @@ import androidx.lifecycle.OnLifecycleEvent;
 /**
  * 自定义生命周期显示处理接口
  */
-public class ActivityLifeCycleUtil implements LifecycleObserver {
+public class LifeUtil implements LifecycleObserver {
 
     private final String TAG;
     private final LifecycleOwner lifecycleOwner;
 
-    public ActivityLifeCycleUtil(String TAG, LifecycleOwner lifecycleOwner) {
-        this.TAG = "ActivityLifeCycleUtil:" + TAG;
+    public LifeUtil(String TAG, LifecycleOwner lifecycleOwner) {
+        this.TAG = "LifeUtil:" + TAG;
         this.lifecycleOwner = lifecycleOwner;
         addObserver();
     }

@@ -18,6 +18,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ground.B_Translate_Activity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+             />
+        <activity android:name=".ground.B_WithTask_Activity" />
+        <!--        android:theme="@android:style/Theme.Translucent.NoTitleBar"-->
     </application>
 
 </manifest>
