@@ -12,7 +12,6 @@ import com.arno.demo.life.R;
 import com.arno.demo.life.utils.LifeUtil;
 
 public class SingleInstanceActivity extends BaseTaskActivity {
-//    private final String TAG = "SingleInstanceActivity-->" + hashCode();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,14 +20,14 @@ public class SingleInstanceActivity extends BaseTaskActivity {
         new LifeUtil(TAG, this);
     }
 
+    /**
+     * 注意 当设置成为singleInstance模式后
+     * 再次启动其他的页面任务栈不同,返回后 除非启动页面的任务栈没有了
+     * 才会再次返回singleInstance的任务栈中 这点需要注意
+     * @param view
+     */
     public void doStart(View view) {
         startActivity(new Intent(this, SingleInstanceActivity.class));
-
-        //通过代码启动singleTask模式
-        Intent intent = new Intent();
-        intent.setClass(this, SingleInstanceActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        startActivity(intent);
     }
 
 }

@@ -30,6 +30,11 @@
         <activity
             android:name=".task.SingleInstanceActivity"
             android:launchMode="singleInstance" />
+        <activity
+            android:name=".task.SingleTaskActivity"
+            android:allowTaskReparenting="true"
+            android:launchMode="singleTask"
+            android:taskAffinity="com.my.single" />
     </application>
 
 </manifest>
