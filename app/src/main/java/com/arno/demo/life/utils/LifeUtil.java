@@ -16,7 +16,7 @@ public class LifeUtil implements LifecycleObserver {
     private final LifecycleOwner lifecycleOwner;
 
     public LifeUtil(String TAG, LifecycleOwner lifecycleOwner) {
-        this.TAG = "LifeUtil:" + TAG;
+        this.TAG = "LifeUtil-->" + TAG;
         this.lifecycleOwner = lifecycleOwner;
         addObserver();
     }

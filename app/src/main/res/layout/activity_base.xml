@@ -4,38 +4,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ground.GroundLearnActivity">
+    tools:context=".task.TaskLearnActivity">
 
     <Button
-        android:id="@+id/btn_start_normal_b"
+        android:id="@+id/btn_standard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:onClick="startNormal"
-        android:text="开启 B Activity"
+        android:onClick="startStandard"
+        android:text="启动standard Activity"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn_start_translate_b"
+        android:id="@+id/btn_single_top"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:onClick="startTranslate"
-        android:text="开启透明 B Activity"
+        android:onClick="startSingleTop"
+        android:text="启动singleTop Activity"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_start_normal_b" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_standard" />
 
     <Button
-        android:id="@+id/btn_start_task_b"
+        android:id="@+id/btn_single_instance"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:onClick="startTask"
-        android:text="开启主线程任务繁重 B Activity"
+        android:onClick="startSingleInstance"
+        android:text="启动singleInstance Activity"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_start_translate_b" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_single_top" />
+
+    <Button
+        android:id="@+id/btn_single_task"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="startSingleTask"
+        android:text="启动singleTask Activity"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_single_instance" />
 </androidx.constraintlayout.widget.ConstraintLayout>

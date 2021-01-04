@@ -3,29 +3,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
 
     <Button
-        android:id="@+id/btn_ground"
+        android:id="@+id/btn_self"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:onClick="goToGround"
-        android:text="生命周期演示"
+        android:layout_marginTop="200dp"
+        android:onClick="doStart"
+        android:text="启动SingleTop模式"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn_task"
+        android:id="@+id/btn_other"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:onClick="goToTask"
-        android:text="启动模式分析"
+        android:layout_marginTop="108dp"
+        android:onClick="doStartOther"
+        android:text="启动标准模式"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_ground" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_self" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

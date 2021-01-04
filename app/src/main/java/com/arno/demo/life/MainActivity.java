@@ -8,7 +8,8 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Toast;
 
-import com.arno.demo.life.ground.A_Activity;
+import com.arno.demo.life.ground.GroundLearnActivity;
+import com.arno.demo.life.task.TaskLearnActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,9 +20,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void goToGround(View view) {
-        startActivity(new Intent(this, A_Activity.class));
+        startActivity(new Intent(this, GroundLearnActivity.class));
     }
 
+    public void goToTask(View view) {
+        startActivity(new Intent(this, TaskLearnActivity.class));
+    }
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {

@@ -10,8 +10,8 @@ import android.view.View;
 import com.arno.demo.life.R;
 import com.arno.demo.life.utils.LifeUtil;
 
-public class A_Activity extends AppCompatActivity {
-    private static final String TAG = "A_Activity";
+public class GroundLearnActivity extends AppCompatActivity {
+    private static final String TAG = "GroundLearnActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
