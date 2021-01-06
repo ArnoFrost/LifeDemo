@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".conflict.Scroller_Recycler_Same_Outer">
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.arno.demo.life.conflict.MyLinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_head"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:background="#FFEB3B"
+                android:gravity="center"
+                android:text="HEADER"
+                android:textSize="20dp" />
+
+            <com.arno.demo.life.conflict.MyRecyclerViewBothVertical
+                android:id="@+id/rvView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#9C27B0" />
+
+<!--            <com.arno.demo.life.conflict.MyRecyclerViewVerticalHorizontal-->
+<!--                android:id="@+id/rvView"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:background="#9C27B0" />-->
+
+            <TextView
+                android:id="@+id/tv_footer"
+                android:layout_width="match_parent"
+                android:layout_height="800dp"
+                android:background="#03A9F4"
+                android:gravity="center"
+                android:text="Footer"
+                android:textSize="20dp" />
+        </com.arno.demo.life.conflict.MyLinearLayout>
+
+
+    </ScrollView>
+
+</LinearLayout>

@@ -39,4 +39,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_task" />
 
+    <Button
+        android:id="@+id/btn_conflict"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="goToConflict"
+        android:text="滑动冲突解决"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_view" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

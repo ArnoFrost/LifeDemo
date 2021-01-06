@@ -8,6 +8,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Toast;
 
+import com.arno.demo.life.conflict.ConflictLearnActivity;
 import com.arno.demo.life.life.LifeLearnActivity;
 import com.arno.demo.life.task.TaskLearnActivity;
 import com.arno.demo.life.view.ViewLearnActivity;
@@ -30,6 +31,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void goToView(View view) {
         startActivity(new Intent(this, ViewLearnActivity.class));
+    }
+
+    public void goToConflict(View view) {
+        startActivity(new Intent(this, ConflictLearnActivity.class));
     }
 
     @Override

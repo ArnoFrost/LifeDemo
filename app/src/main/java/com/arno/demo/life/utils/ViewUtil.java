@@ -22,4 +22,15 @@ public class ViewUtil {
         }
         return string;
     }
+
+    /**
+     * 判断是否是垂直滚动
+     *
+     * @param deltaX
+     * @param deltaY
+     * @return
+     */
+    public static boolean isVertical(int deltaX, int deltaY) {
+        return Math.abs(deltaX) > Math.abs(deltaY);
+    }
 }
