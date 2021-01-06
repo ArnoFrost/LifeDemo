@@ -31,6 +31,7 @@ public class MyScrollerVerticalHorizontal extends ScrollView {
     private int mInitialTouchX;
     private int mInitialTouchY;
 
+    @Override
     public boolean onInterceptTouchEvent(MotionEvent ev) {
         boolean isIntercept = false;
         switch (ev.getAction()) {
