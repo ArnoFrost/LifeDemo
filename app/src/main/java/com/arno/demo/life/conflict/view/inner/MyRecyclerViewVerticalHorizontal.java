@@ -1,4 +1,4 @@
-package com.arno.demo.life.conflict;
+package com.arno.demo.life.conflict.view.inner;
 
 import android.content.Context;
 import android.util.AttributeSet;

@@ -4,9 +4,9 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.arno.demo.life.R;
+import com.arno.demo.life.conflict.view.inner.MyRecyclerViewBothVertical;
 import com.arno.demo.life.utils.DataUtil;
 
 public class Scroller_Recycler_Same_Inner extends AppCompatActivity {

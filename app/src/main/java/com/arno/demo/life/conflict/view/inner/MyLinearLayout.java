@@ -1,4 +1,4 @@
-package com.arno.demo.life.conflict;
+package com.arno.demo.life.conflict.view.inner;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -24,13 +24,10 @@ public class MyLinearLayout extends LinearLayout {
         super(context, attrs, defStyleAttr, defStyleRes);
     }
 
+    @Override
     public boolean onInterceptTouchEvent(MotionEvent event) {
-
         int action = event.getAction();
-        if (action == MotionEvent.ACTION_DOWN) {
-            return false;
-        } else {
-            return true;
-        }
+        //关键点不要让父布局group拦截down事件防止下发不到
+        return action != MotionEvent.ACTION_DOWN;
     }
 }

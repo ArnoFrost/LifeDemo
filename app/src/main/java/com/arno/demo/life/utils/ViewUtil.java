@@ -33,4 +33,8 @@ public class ViewUtil {
     public static boolean isVertical(int deltaX, int deltaY) {
         return Math.abs(deltaX) > Math.abs(deltaY);
     }
+
+    public static boolean isHorizontal(int deltaX, int deltaY) {
+        return Math.abs(deltaY) > Math.abs(deltaX);
+    }
 }

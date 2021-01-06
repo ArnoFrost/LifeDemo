@@ -1,4 +1,4 @@
-package com.arno.demo.life.conflict;
+package com.arno.demo.life.conflict.view.inner;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -63,7 +63,7 @@ public class MyRecyclerViewBothVertical extends RecyclerView {
                 int deltaX = x - mLastX;
                 int deltaY = y - mLastY;
                 //处理自己也是纵向滚动
-                if (!ViewUtil.isVertical(deltaX, deltaY)) {
+                if (ViewUtil.isHorizontal(deltaX, deltaY)) {
                     //纵向滚动查看当前方向是否能滚动
                     if (deltaY > 0) {
                         //向上滑动 同时满足可以继续向上滑动
