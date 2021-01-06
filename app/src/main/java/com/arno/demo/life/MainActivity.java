@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.arno.demo.life.life.LifeLearnActivity;
 import com.arno.demo.life.task.TaskLearnActivity;
+import com.arno.demo.life.view.ViewLearnActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,12 +20,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void goToGround(View view) {
+    public void goToLife(View view) {
         startActivity(new Intent(this, LifeLearnActivity.class));
     }
 
     public void goToTask(View view) {
         startActivity(new Intent(this, TaskLearnActivity.class));
+    }
+
+    public void goToView(View view) {
+        startActivity(new Intent(this, ViewLearnActivity.class));
     }
 
     @Override
@@ -46,4 +51,6 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
     }
+
+
 }
