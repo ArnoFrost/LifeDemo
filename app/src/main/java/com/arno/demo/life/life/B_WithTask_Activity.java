@@ -1,8 +1,6 @@
-package com.arno.demo.life.ground;
+package com.arno.demo.life.life;
 
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,7 +20,7 @@ public class B_WithTask_Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        root = LayoutInflater.from(this).inflate(R.layout.activity_ground_b, null);
+        root = LayoutInflater.from(this).inflate(R.layout.activity_life_b, null);
         setContentView(root);
         new LifeUtil(TAG, this);
         //放置复杂的任务 来使得主线程任务繁重

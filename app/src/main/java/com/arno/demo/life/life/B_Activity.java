@@ -1,4 +1,4 @@
-package com.arno.demo.life.ground;
+package com.arno.demo.life.life;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -13,7 +13,7 @@ public class B_Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ground_b);
+        setContentView(R.layout.activity_life_b);
         new LifeUtil(TAG, this);
     }
     @Override

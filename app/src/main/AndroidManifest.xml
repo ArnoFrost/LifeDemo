@@ -9,9 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LifeDemo">
-        <activity android:name=".task.TaskLearnActivity"></activity>
-        <activity android:name=".ground.B_Activity" />
-        <activity android:name=".ground.GroundLearnActivity" />
+        <activity android:name=".task.TaskLearnActivity"/>
+        <activity android:name=".life.B_Activity" />
+        <activity android:name=".life.LifeLearnActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,9 +20,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ground.B_Translate_Activity"
+            android:name=".life.B_Translate_Activity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <activity android:name=".ground.B_WithTask_Activity" />
+        <activity android:name=".life.B_WithTask_Activity" />
         <activity android:name=".task.StandardActivity" />
         <activity
             android:name=".task.SingleTopActivity"

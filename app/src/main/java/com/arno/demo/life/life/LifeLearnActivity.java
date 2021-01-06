@@ -1,4 +1,4 @@
-package com.arno.demo.life.ground;
+package com.arno.demo.life.life;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,13 +10,13 @@ import android.view.View;
 import com.arno.demo.life.R;
 import com.arno.demo.life.utils.LifeUtil;
 
-public class GroundLearnActivity extends AppCompatActivity {
-    private static final String TAG = "GroundLearnActivity";
+public class LifeLearnActivity extends AppCompatActivity {
+    private static final String TAG = "LifeLearnActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ground_a);
+        setContentView(R.layout.activity_life_a);
         new LifeUtil(TAG, this);
     }
 

@@ -8,7 +8,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Toast;
 
-import com.arno.demo.life.ground.GroundLearnActivity;
+import com.arno.demo.life.life.LifeLearnActivity;
 import com.arno.demo.life.task.TaskLearnActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void goToGround(View view) {
-        startActivity(new Intent(this, GroundLearnActivity.class));
+        startActivity(new Intent(this, LifeLearnActivity.class));
     }
 
     public void goToTask(View view) {

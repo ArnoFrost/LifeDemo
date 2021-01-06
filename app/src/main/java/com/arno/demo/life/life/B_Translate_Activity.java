@@ -1,4 +1,4 @@
-package com.arno.demo.life.ground;
+package com.arno.demo.life.life;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -15,7 +15,7 @@ public class B_Translate_Activity extends Activity {
         Log.d(TAG, "onCreate: ");
         super.onCreate(savedInstanceState);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        setContentView(R.layout.activity_ground_b_translate);
+        setContentView(R.layout.activity_life_b_translate);
     }
 
 
