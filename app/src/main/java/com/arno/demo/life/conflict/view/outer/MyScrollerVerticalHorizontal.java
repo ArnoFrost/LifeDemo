@@ -4,12 +4,14 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.os.Build;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.ScrollView;
 
 import com.arno.demo.life.utils.ViewUtil;
 
 public class MyScrollerVerticalHorizontal extends ScrollView {
+    private static final String TAG = "MyScrollerVerticalHoriz";
 
     public MyScrollerVerticalHorizontal(Context context) {
         this(context, null);
@@ -42,14 +44,15 @@ public class MyScrollerVerticalHorizontal extends ScrollView {
                 mInitialTouchX = (int) (ev.getX() + 0.5f);
                 mInitialTouchY = (int) (ev.getY() + 0.5f);
                 break;
+            case MotionEvent.ACTION_UP:
+                //UP事件不能拦截，子View将无法触发点击事件
+                isIntercept = false;
+                break;
             case MotionEvent.ACTION_MOVE:
                 //根据条件判断是否拦截事件
                 isIntercept = needThisEvent(ev);
                 break;
-            case MotionEvent.ACTION_UP:
-                //一旦父容器拦截了UP事件，子View将无法触发点击事件
-                isIntercept = false;
-                break;
+
             default:
                 break;
         }
@@ -75,6 +78,7 @@ public class MyScrollerVerticalHorizontal extends ScrollView {
 
         //判断是否是竖直方向 数值大于水平 则自己处理
         // 否则交由子布局处理
+        Log.d(TAG, "needThisEvent() called with: event = [" + event + "]");
         return ViewUtil.isVertical(dx, dy);
 
     }

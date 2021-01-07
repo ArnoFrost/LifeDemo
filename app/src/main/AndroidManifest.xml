@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.arno.demo.life">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <application
         android:name=".MyApp"
         android:allowBackup="true"
@@ -10,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LifeDemo">
-        <activity android:name=".conflict.Scroller_Recycler_Same_Outer"></activity>
+        <activity android:name=".loader.ClassLoaderActivity"></activity>
+        <activity android:name=".conflict.Scroller_Recycler_Same_Outer" />
         <activity android:name=".conflict.ConflictLearnActivity" />
         <activity android:name=".view.ViewLearnActivity" />
         <activity android:name=".task.TaskLearnActivity" />
