@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.arno.demo.life.conflict.ConflictLearnActivity;
+import com.arno.demo.life.event.EventLearnActivity;
 import com.arno.demo.life.life.LifeLearnActivity;
 import com.arno.demo.life.loader.ClassLoaderActivity;
 import com.arno.demo.life.task.TaskLearnActivity;
@@ -42,6 +43,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, ClassLoaderActivity.class));
     }
 
+    public void goToEvent(View view) {
+        startActivity(new Intent(this, EventLearnActivity.class));
+    }
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
@@ -61,6 +66,7 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
     }
+
 
 
 }
