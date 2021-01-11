@@ -13,7 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LifeDemo">
-        <activity android:name=".event.EventLearnActivity"></activity>
+        <activity android:name=".handler.HandlerLearnActivity"></activity>
+        <activity android:name=".annotation.AnnotationLearnActivity" />
+        <activity android:name=".event.EventLearnActivity" />
         <activity android:name=".loader.ClassLoaderActivity" />
         <activity android:name=".conflict.Scroller_Recycler_Same_Outer" />
         <activity android:name=".conflict.ConflictLearnActivity" />

@@ -8,8 +8,10 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Toast;
 
+import com.arno.demo.life.annotation.AnnotationLearnActivity;
 import com.arno.demo.life.conflict.ConflictLearnActivity;
 import com.arno.demo.life.event.EventLearnActivity;
+import com.arno.demo.life.handler.HandlerLearnActivity;
 import com.arno.demo.life.life.LifeLearnActivity;
 import com.arno.demo.life.loader.ClassLoaderActivity;
 import com.arno.demo.life.task.TaskLearnActivity;
@@ -47,6 +49,14 @@ public class MainActivity extends AppCompatActivity {
         startActivity(new Intent(this, EventLearnActivity.class));
     }
 
+    public void goToAnnotation(View view) {
+        startActivity(new Intent(this, AnnotationLearnActivity.class));
+    }
+
+    public void goToHandler(View view) {
+        startActivity(new Intent(this, HandlerLearnActivity.class));
+    }
+
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK) {
@@ -66,7 +76,4 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
     }
-
-
-
 }
