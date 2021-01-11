@@ -14,6 +14,7 @@ import com.arno.demo.life.event.EventLearnActivity;
 import com.arno.demo.life.handler.HandlerLearnActivity;
 import com.arno.demo.life.life.LifeLearnActivity;
 import com.arno.demo.life.loader.ClassLoaderActivity;
+import com.arno.demo.life.messenger.MessengerLearnActivity;
 import com.arno.demo.life.task.TaskLearnActivity;
 import com.arno.demo.life.view.ViewLearnActivity;
 
@@ -55,6 +56,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void goToHandler(View view) {
         startActivity(new Intent(this, HandlerLearnActivity.class));
+    }
+
+    public void goToMessenger(View view) {
+        startActivity(new Intent(this, MessengerLearnActivity.class));
     }
 
     @Override
