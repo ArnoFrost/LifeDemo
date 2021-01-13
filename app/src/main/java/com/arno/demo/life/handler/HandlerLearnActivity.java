@@ -63,25 +63,7 @@ public class HandlerLearnActivity extends AppCompatActivity {
     private HandlerThread normalThread;
     private Handler normalHandler;
 
-    private Handler getNormalHandler() {
-        if (normalThread == null) {
-            normalThread = new HandlerThread("NormalThread");
-            normalThread.start();
-        }
-        if (normalHandler == null) {
-            normalHandler = new Handler(normalThread.getLooper(), msg -> {
-                Log.d(TAG, "2. 构造方法callback 执行 handleMessage() 是否拦截 : " + (msg.what > 0) + ",thread = " + Thread.currentThread());
-                return msg.what > 0;
-            }) {
-                @Override
-                public void handleMessage(@NonNull Message msg) {
-                    Log.d(TAG, "3. 最后覆写方法的回调执行 handleMessage() called with: msg = [" + msg + "]");
-                }
-            };
-        }
 
-        return normalHandler;
-    }
 
     private HandlerThread asyncThread;
     private Handler asyncHandler;
@@ -144,6 +126,25 @@ public class HandlerLearnActivity extends AppCompatActivity {
         Log.d(TAG, "sendNormalMessage: ");
 //        getNormalHandler().sendMessage(Message.obtain());
         getNormalHandler().sendMessageDelayed(Message.obtain(), 1000);
+    }
+    private Handler getNormalHandler() {
+        if (normalThread == null) {
+            normalThread = new HandlerThread("NormalThread");
+            normalThread.start();
+        }
+        if (normalHandler == null) {
+            normalHandler = new Handler(normalThread.getLooper(), msg -> {
+                Log.d(TAG, "2. 构造方法callback 执行 handleMessage() 是否拦截 : " + (msg.what > 0) + ",thread = " + Thread.currentThread());
+                return msg.what > 0;
+            }) {
+                @Override
+                public void handleMessage(@NonNull Message msg) {
+                    Log.d(TAG, "3. 最后覆写方法的回调执行 handleMessage() called with: msg = [" + msg + "]");
+                }
+            };
+        }
+
+        return normalHandler;
     }
 
     public void sendCallbackMessage(View view) {

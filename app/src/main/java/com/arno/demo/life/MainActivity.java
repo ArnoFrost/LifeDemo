@@ -11,6 +11,7 @@ import android.widget.Toast;
 import com.arno.demo.life.annotation.AnnotationLearnActivity;
 import com.arno.demo.life.conflict.ConflictLearnActivity;
 import com.arno.demo.life.event.EventLearnActivity;
+import com.arno.demo.life.handler.BlockLearnActivity;
 import com.arno.demo.life.handler.HandlerLearnActivity;
 import com.arno.demo.life.life.LifeLearnActivity;
 import com.arno.demo.life.loader.ClassLoaderActivity;
@@ -70,6 +71,10 @@ public class MainActivity extends AppCompatActivity {
 
     public void goToViewPref(View view) {
         startActivity(new Intent(this, ViewPrefLearnActivity.class));
+    }
+
+    public void goToBlock(View view) {
+        startActivity(new Intent(this, BlockLearnActivity.class));
     }
 
     @Override

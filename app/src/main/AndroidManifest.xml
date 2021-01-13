@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LifeDemo">
-        <activity android:name=".pref.ViewPrefLearnActivity"></activity>
+        <activity android:name=".handler.BlockLearnActivity"></activity>
+        <activity android:name=".pref.ViewPrefLearnActivity" />
         <activity android:name=".router.RouterLearnActivity" />
         <activity android:name=".messenger.MessengerLearnActivity" />
 
