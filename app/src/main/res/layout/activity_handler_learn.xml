@@ -36,8 +36,33 @@
         android:onClick="sendCallbackInterceptMessage"
         android:text="发送消息并且拦截" />
 
-    <EditText
-        android:id="@+id/log"
-        android:layout_width="match_parent"
-        android:layout_height="40dp" />
+
+    <Button
+        android:id="@+id/btn_open_async"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="openBarrier"
+        android:text="开启消息屏障" />
+
+    <Button
+        android:id="@+id/btn_close_async"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="closeBarrier"
+        android:text="关闭消息屏障" />
+
+    <Button
+        android:id="@+id/btn_send_async"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="sendAsync"
+        android:text="发送异步消息" />
+
+    <Button
+        android:id="@+id/btn_send_sync"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="sendSync"
+        android:text="发送同步消息" />
+
 </LinearLayout>
