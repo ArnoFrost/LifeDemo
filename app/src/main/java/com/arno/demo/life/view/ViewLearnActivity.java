@@ -9,11 +9,14 @@ import android.view.View;
 import android.widget.Button;
 
 import com.arno.demo.life.R;
+import com.arno.demo.life.widget.SwitchButton;
+import com.blankj.utilcode.util.ToastUtils;
 
 public class ViewLearnActivity extends AppCompatActivity {
     private static final String TAG = "ViewLearnActivity";
-//    private CustomView customView;
+    //    private CustomView customView;
     private Button button;
+    private SwitchButton switchButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +25,14 @@ public class ViewLearnActivity extends AppCompatActivity {
 
 //        customView = findViewById(R.id.custom);
         button = findViewById(R.id.btn);
+        switchButton = findViewById(R.id.custom_button);
+
+        switchButton.setOnCheckStateListener(new SwitchButton.OnCheckStateListener() {
+            @Override
+            public void onChange(boolean state) {
+                ToastUtils.showShort(String.valueOf(state));
+            }
+        });
 
         button.setOnTouchListener(new View.OnTouchListener() {
             @Override
