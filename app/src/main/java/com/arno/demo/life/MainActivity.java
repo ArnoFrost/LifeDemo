@@ -15,6 +15,7 @@ import com.arno.demo.life.conflict.ConflictLearnActivity;
 import com.arno.demo.life.event.EventLearnActivity;
 import com.arno.demo.life.handler.BlockLearnActivity;
 import com.arno.demo.life.handler.HandlerLearnActivity;
+import com.arno.demo.life.hook.HookLearnActivity;
 import com.arno.demo.life.life.LifeLearnActivity;
 import com.arno.demo.life.loader.ClassLoaderActivity;
 import com.arno.demo.life.messenger.MessengerLearnActivity;
@@ -29,6 +30,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
+
+    public void goToHook(View view) {
+        startActivity(new Intent(this, HookLearnActivity.class));
     }
 
     public void goToIntent(View view) {
