@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.arno.demo.life.annotation.AnnotationLearnActivity;
 import com.arno.demo.life.binder.BinderLearnActivity;
+import com.arno.demo.life.binder.IntentServiceLearnActivity;
 import com.arno.demo.life.conflict.ConflictLearnActivity;
 import com.arno.demo.life.event.EventLearnActivity;
 import com.arno.demo.life.handler.BlockLearnActivity;
@@ -28,6 +29,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
+
+    public void goToIntent(View view) {
+        startActivity(new Intent(this, IntentServiceLearnActivity.class));
     }
 
     public void goToBinder(View view) {

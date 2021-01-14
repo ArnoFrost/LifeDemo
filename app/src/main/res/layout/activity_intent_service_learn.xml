@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".binder.BinderLearnActivity">
+    tools:context=".binder.IntentServiceLearnActivity">
 
     <Button
         android:id="@+id/btn_bind"
@@ -37,33 +37,5 @@
         android:onClick="stopCustomService"
         android:text="Stop服务" />
 
-    <Button
-        android:id="@+id/btn_getBook"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="getBook"
-        android:text="获取书籍" />
-
-
-    <Button
-        android:id="@+id/btn_addBook"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="addBook"
-        android:text="添加书籍" />
-
-    <Button
-        android:id="@+id/btn_addListener"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="addListener"
-        android:text="添加监听" />
-
-    <Button
-        android:id="@+id/btn_removeListener"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="removeListener"
-        android:text="移除监听" />
 
 </LinearLayout>

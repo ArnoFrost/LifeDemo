@@ -33,6 +33,7 @@ public class BinderLearnActivity extends AppCompatActivity {
         super.onDestroy();
         removeListener(null);
         doUnbindService(null);
+        stopCustomService(null);
     }
 
     public void doBindService(View view) {
@@ -44,14 +45,18 @@ public class BinderLearnActivity extends AppCompatActivity {
     public void doUnbindService(View view) {
         Log.d(TAG, "doUnbindService: ");
         if (hasBind) {
-            this.unbindService(mServiceConnection);
-            hasBind = false;
+            try {
+                this.unbindService(mServiceConnection);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
+
     }
 
 
     public void getBook(View view) {
-        if (hasBind && bookManager != null) {
+        if (hasBind && bookManager != null && bookManager.asBinder().isBinderAlive()) {
             try {
                 List<Book> bookList = bookManager.getBookList();
                 Log.d(TAG, "getBook() called with: bookList = [" + bookList + "]");
@@ -64,7 +69,7 @@ public class BinderLearnActivity extends AppCompatActivity {
     private int i = 3;
 
     public void addBook(View view) {
-        if (hasBind && bookManager != null) {
+        if (hasBind && bookManager != null && bookManager.asBinder().isBinderAlive()) {
             Book book = new Book(i++, String.valueOf(new Random().nextDouble()));
             Log.d(TAG, "addBook: " + book);
             try {
@@ -77,7 +82,7 @@ public class BinderLearnActivity extends AppCompatActivity {
 
     public void addListener(View view) {
         Log.d(TAG, "addListener: ");
-        if (hasBind && bookManager != null) {
+        if (hasBind && bookManager != null && bookManager.asBinder().isBinderAlive()) {
             try {
                 boolean flag = bookManager.addStateListener(listener);
                 Log.d(TAG, "addListener: 是否成功 " + flag);
@@ -90,7 +95,7 @@ public class BinderLearnActivity extends AppCompatActivity {
 
     public void removeListener(View view) {
         Log.d(TAG, "removeListener: ");
-        if (hasBind && bookManager != null) {
+        if (hasBind && bookManager != null && bookManager.asBinder().isBinderAlive()) {
             try {
                 boolean flag = bookManager.removeStateListener(listener);
                 Log.d(TAG, "removeListener: 是否成功 " + flag);
@@ -117,6 +122,13 @@ public class BinderLearnActivity extends AppCompatActivity {
             ToastUtils.showShort("服务已绑定");
             hasBind = true;
             bookManager = IBookManager.Stub.asInterface(service);
+            try {
+                //建立死亡代理
+                service.linkToDeath(mDeathRecipient, 0);
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
+
         }
 
         @Override
@@ -124,7 +136,33 @@ public class BinderLearnActivity extends AppCompatActivity {
             Log.d(TAG, "onServiceDisconnected() called with: name = [" + name + "]");
             ToastUtils.showShort("服务已解绑");
             hasBind = false;
-            bookManager = null;
+//            bookManager = null;
         }
     };
+
+    private final IBinder.DeathRecipient mDeathRecipient = new IBinder.DeathRecipient() {
+        @Override
+        public void binderDied() {
+            Log.d(TAG, "binderDied: ");
+            if (bookManager == null) {
+                return;
+            }
+            bookManager.asBinder().unlinkToDeath(mDeathRecipient, 0);
+            bookManager = null;
+            //TODO 可以重建建立连接...
+            ToastUtils.showShort("连接已断开");
+        }
+    };
+
+    public void startCustomService(View view) {
+        Log.d(TAG, "startService: ");
+        Intent intent = new Intent(this, RemoteService.class);
+        startService(intent);
+    }
+
+    public void stopCustomService(View view) {
+        Log.d(TAG, "stopService: ");
+        Intent intent = new Intent(this, RemoteService.class);
+        stopService(intent);
+    }
 }

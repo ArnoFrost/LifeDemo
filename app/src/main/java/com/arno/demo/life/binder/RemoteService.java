@@ -28,6 +28,24 @@ public class RemoteService extends Service {
     }
 
     @Override
+    public boolean onUnbind(Intent intent) {
+        Log.e(TAG, "服务端 onUnbind: ");
+        return super.onUnbind(intent);
+    }
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        Log.d(TAG, "服务端 onStartCommand: ");
+        return super.onStartCommand(intent, flags, startId);
+    }
+
+    @Override
+    public void onDestroy() {
+        Log.d(TAG, "服务端 onDestroy: ");
+        super.onDestroy();
+    }
+
+    @Override
     public IBinder onBind(Intent intent) {
         return mBinder;
     }
