@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".binder.BinderLearnActivity">
+
+    <Button
+        android:id="@+id/btn_connect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="doBindService"
+        android:text="绑定服务" />
+
+    <Button
+        android:id="@+id/btn_disconnect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="doUnbindService"
+        android:text="解绑服务" />
+
+    <Button
+        android:id="@+id/btn_getBook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="getBook"
+        android:text="获取书籍" />
+
+
+    <Button
+        android:id="@+id/btn_addBook"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="addBook"
+        android:text="添加书籍" />
+
+    <Button
+        android:id="@+id/btn_addListener"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="addListener"
+        android:text="添加监听" />
+
+    <Button
+        android:id="@+id/btn_removeListener"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="removeListener"
+        android:text="移除监听" />
+
+</LinearLayout>
