@@ -33,7 +33,7 @@ public class LifeLearnActivity extends AppCompatActivity {
      */
     public void startNormal(View view) {
         startActivity(new Intent(this, B_Activity.class));
-        doDelay();
+//        doDelay();
     }
 
     private void doDelay() {
@@ -51,6 +51,10 @@ public class LifeLearnActivity extends AppCompatActivity {
      */
     public void startTranslate(View view) {
         startActivity(new Intent(this, B_Translate_Activity.class));
+    }
+
+    public void startTranslateAuto(View view) {
+        startActivity(new Intent(this, B_Translate_Auto_Activity.class));
     }
 
     private long startTime;

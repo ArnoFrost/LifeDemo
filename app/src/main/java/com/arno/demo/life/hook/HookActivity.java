@@ -2,10 +2,7 @@ package com.arno.demo.life.hook;
 
 import android.app.Activity;
 import android.app.Instrumentation;
-import android.content.Intent;
-import android.os.Bundle;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.lang.reflect.Field;

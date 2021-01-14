@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
     tools:context=".life.LifeLearnActivity">
 
     <Button
@@ -29,6 +31,17 @@
         app:layout_constraintTop_toBottomOf="@+id/btn_start_normal_b" />
 
     <Button
+        android:id="@+id/btn_start_translate_b_auto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:onClick="startTranslateAuto"
+        android:text="开启透明 B Activity之后延迟 再开启正常"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_start_normal_b" />
+
+    <Button
         android:id="@+id/btn_start_task_b"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -38,4 +51,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_start_translate_b" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
