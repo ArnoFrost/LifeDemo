@@ -25,6 +25,11 @@ public class MyLinearLayout extends LinearLayout {
     }
 
     @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        return super.dispatchTouchEvent(ev);
+    }
+
+    @Override
     public boolean onInterceptTouchEvent(MotionEvent event) {
         int action = event.getAction();
         //关键点不要让父布局group拦截down事件防止下发不到

@@ -1,5 +1,6 @@
 package com.arno.demo.life.utils;
 
+import android.content.res.Resources;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,7 +51,7 @@ public class ViewUtil {
         return new ViewUtil();
     }
 
-    public void applyViewRecursively(ViewGroup parent) {
+    public void applyViewRecursively(ViewGroup parent, int depth) {
         if (parent == null) {
             Log.e(TAG, "applyViewRecursively: parent is null");
             return;
@@ -61,9 +62,13 @@ public class ViewUtil {
             View child = parent.getChildAt(i);
             if (child instanceof ViewGroup) {
                 //递归遍历
-                applyViewRecursively((ViewGroup) child);
+                applyViewRecursively((ViewGroup) child, depth++);
             } else if (child != null) {
-                Log.d(TAG, "applyViewRecursively: parent = " + parent.getClass().getSimpleName() + " , child = " + child.getClass().getSimpleName());
+                StringBuilder builder = new StringBuilder();
+                for (int j = 0; j < depth; j++) {
+                    builder.append("--");
+                }
+                Log.d(TAG, "applyViewRecursively: depth = " + depth + "," + builder.toString() + "parent = " + parent.getClass().getSimpleName() + " , child = " + child.getClass().getSimpleName());
             }
         }
         Log.d(TAG, "applyViewRecursively: parent = " + parent.getClass().getSimpleName() + ":" + parent.getId() + " finished");
@@ -80,11 +85,14 @@ public class ViewUtil {
         int depth = 0;
         while (!queue.isEmpty()) {
             View temp = queue.getFirst();
+            //将当前view层的所有子添加进来
             if (temp instanceof ViewGroup) {
                 int childCount = ((ViewGroup) temp).getChildCount();
                 for (int i = 0; i < childCount; i++) {
                     queue.addLast(((ViewGroup) temp).getChildAt(i));
                 }
+                //当前层结束
+                Log.d(TAG, "breadthTravelView: depth " + depth++ + " 层结束");
             }
             StringBuilder builder = new StringBuilder();
             for (int i = 0; i < depth; i++) {
@@ -92,7 +100,6 @@ public class ViewUtil {
             }
             //打印参数
             Log.d(TAG, "breadthTravelView:" + builder.toString() + " depth = " + depth + ",rootView : " + temp.getClass().getSimpleName() + ":" + temp.getId() + " ,child = " + temp.getClass().getSimpleName());
-            depth++;
             if (!queue.isEmpty()) {
                 Log.d(TAG, "breadthTravelView: |");
             }
@@ -132,5 +139,13 @@ public class ViewUtil {
                 Log.d(TAG, "depthTravelView: |");
             }
         }
+    }
+
+    public static float getDensity() {
+        return Resources.getSystem().getDisplayMetrics().density;
+    }
+
+    public static float getDensityDpi() {
+        return Resources.getSystem().getDisplayMetrics().densityDpi;
     }
 }

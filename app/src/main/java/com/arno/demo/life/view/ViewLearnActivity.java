@@ -1,18 +1,18 @@
 package com.arno.demo.life.view;
 
-import androidx.appcompat.app.AppCompatActivity;
-
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.arno.demo.life.R;
 import com.arno.demo.life.utils.ViewUtil;
-import com.arno.demo.life.widget.SwitchButton;
 import com.blankj.utilcode.util.ToastUtils;
 
 public class ViewLearnActivity extends AppCompatActivity {
@@ -61,8 +61,15 @@ public class ViewLearnActivity extends AppCompatActivity {
             }
         });
 
-//        ViewUtil.create().applyViewRecursively(root);
-        ViewUtil.create().breadthTravelView(root);
-        ViewUtil.create().depthTravelView(root);
+//        ViewUtil.create().applyViewRecursively(root, 0);
+//        ViewUtil.create().breadthTravelView(root);
+//        ViewUtil.create().depthTravelView(root);
+        float density = ViewUtil.getDensity();
+        ToastUtils.showShort("density = " + density);
+        float dpi = ViewUtil.getDensityDpi();
+        Log.d(TAG, "onCreate: density = " + density + ",dpi = " + dpi);
+
+        BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inPreferredConfig = Bitmap.Config.RGB_565;
     }
 }
