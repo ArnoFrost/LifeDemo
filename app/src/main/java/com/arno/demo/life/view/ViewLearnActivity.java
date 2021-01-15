@@ -6,9 +6,12 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
 
 import com.arno.demo.life.R;
+import com.arno.demo.life.utils.ViewUtil;
 import com.arno.demo.life.widget.SwitchButton;
 import com.blankj.utilcode.util.ToastUtils;
 
@@ -16,7 +19,9 @@ public class ViewLearnActivity extends AppCompatActivity {
     private static final String TAG = "ViewLearnActivity";
     //    private CustomView customView;
     private Button button;
-    private SwitchButton switchButton;
+//    private SwitchButton switchButton;
+
+    private LinearLayout root;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,15 +29,16 @@ public class ViewLearnActivity extends AppCompatActivity {
         setContentView(R.layout.activity_view_learn);
 
 //        customView = findViewById(R.id.custom);
+        root = findViewById(R.id.root);
         button = findViewById(R.id.btn);
-        switchButton = findViewById(R.id.custom_button);
+//        switchButton = findViewById(R.id.custom_button);
 
-        switchButton.setOnCheckStateListener(new SwitchButton.OnCheckStateListener() {
-            @Override
-            public void onChange(boolean state) {
-                ToastUtils.showShort(String.valueOf(state));
-            }
-        });
+//        switchButton.setOnCheckStateListener(new SwitchButton.OnCheckStateListener() {
+//            @Override
+//            public void onChange(boolean state) {
+//                ToastUtils.showShort(String.valueOf(state));
+//            }
+//        });
 
         button.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -54,5 +60,9 @@ public class ViewLearnActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+//        ViewUtil.create().applyViewRecursively(root);
+        ViewUtil.create().breadthTravelView(root);
+        ViewUtil.create().depthTravelView(root);
     }
 }
