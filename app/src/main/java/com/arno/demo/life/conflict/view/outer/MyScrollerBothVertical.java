@@ -63,7 +63,7 @@ public class MyScrollerBothVertical extends ScrollView {
         }
         //如果根布局是Recyclerview 的垂直方向
         if (canVertical(rootLayout) && ((RecyclerView) rootLayout).getLayoutManager() != null && ((RecyclerView) rootLayout).getLayoutManager().canScrollVertically()) {
-            Log.e(TAG, "onInterceptTouchEvent: 1. 根布局是满足条件的直接交由处理");
+            Log.e(TAG, "onInterceptTouchEvent: 1. 根布局是满足条件的直接交由内部的子view处理");
             isIntercept = !isTouchPointInView(rootLayout, (int) event.getX(), (int) event.getY());
         } else if (rootLayout instanceof ViewGroup) {
             int count = ((ViewGroup) rootLayout).getChildCount();
@@ -87,7 +87,7 @@ public class MyScrollerBothVertical extends ScrollView {
                     Log.e(TAG, "onInterceptTouchEvent: 2. 子布局命中到可滚动 则交由子布局处理");
                 }
             } else {
-                Log.e(TAG, "onInterceptTouchEvent: 3. 其他默认则不处理");
+                Log.e(TAG, "onInterceptTouchEvent: 3. 其他默认则内部不处理 交由外部布局自己处理");
                 isIntercept = true;
             }
         }

@@ -15,6 +15,8 @@ import com.arno.demo.life.R;
 import com.arno.demo.life.utils.ViewUtil;
 import com.blankj.utilcode.util.ToastUtils;
 
+import java.util.Random;
+
 public class ViewLearnActivity extends AppCompatActivity {
     private static final String TAG = "ViewLearnActivity";
     //    private CustomView customView;
@@ -57,7 +59,17 @@ public class ViewLearnActivity extends AppCompatActivity {
                     default:
                         break;
                 }
-                return false;
+//                boolean flag = false;
+                boolean flag = true;
+                Log.d(TAG, "onTouch: flag = " + flag);
+                return flag;
+            }
+        });
+        
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d(TAG, "onClick: ");
             }
         });
 

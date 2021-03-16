@@ -1,0 +1,50 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    ext.booster_version = '3.1.0'
+    repositories {
+        google()
+        jcenter()
+        maven { url 'https://oss.sonatype.org/content/repositories/public' }
+        maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
+
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:4.1.1"
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+        classpath "com.didiglobal.booster:booster-gradle-plugin:$booster_version"
+        classpath "com.didiglobal.booster:booster-task-analyser:$booster_version"
+
+        //zip文件压缩优化
+        //https://booster.johnsonlee.io/feature/shrink/zip-compression.html#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8
+        classpath "com.didiglobal.booster:booster-task-compression-processed-res:$booster_version"
+        //索引资源内联
+        //https://booster.johnsonlee.io/feature/shrink/res-index-inline.html#%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8
+        classpath "com.didiglobal.booster:booster-transform-r-inline:$booster_version"
+        //冗余剔除
+        classpath "com.didiglobal.booster:booster-task-resource-deredundancy:$booster_version"
+        //崩溃兜底
+        classpath "com.didiglobal.booster:booster-transform-activity-thread:$booster_version"
+        //资源为null兜底
+        classpath "com.didiglobal.booster:booster-transform-res-check:$booster_version"
+        //snap shot 检查
+        // ./gradlew checkSnapshot
+        classpath "com.didiglobal.booster:booster-task-check-snapshot:$booster_version"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url 'https://oss.sonatype.org/content/repositories/public' }
+        maven { url 'https://oss.sonatype.org/content/repositories/snapshots/' }
+    }
+}
+
+dependencies {
+    annotationProcessor "com.google.auto.service:auto-service:1.0-rc6"
+    api "com.didiglobal.booster:booster-api:$booster_version"
+    api "com.didiglobal.booster:booster-transform-asm:$booster_version"
+}

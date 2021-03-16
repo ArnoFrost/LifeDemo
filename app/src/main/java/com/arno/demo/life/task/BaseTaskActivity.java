@@ -33,7 +33,7 @@ public abstract class BaseTaskActivity extends AppCompatActivity {
     @Override
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
-        Log.d(TAG, "onNewIntent: ");
+        Log.d(TAG, "LifeUtil onNewIntent: ");
     }
 
     @Override

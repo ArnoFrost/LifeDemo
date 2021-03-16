@@ -2,6 +2,7 @@ package com.arno.demo.life.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
@@ -18,10 +19,13 @@ import androidx.transition.TransitionManager;
 
 import com.arno.demo.life.R;
 
+import java.util.Random;
+
 /**
  * TODO: document your custom view class.
  */
 public class SwitchButton extends ConstraintLayout {
+    private static final String TAG = "SwitchButton";
     private boolean curState = false;
     private final ConstraintSet animSet = new ConstraintSet();
 
@@ -47,7 +51,28 @@ public class SwitchButton extends ConstraintLayout {
     }
 
     @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        boolean consume = false;
+        if (onInterceptTouchEvent(ev)) {
+            consume = onTouchEvent(ev);
+        }
+        Log.d(TAG, "dispatchTouchEvent: consume = " + consume);
+//        return super.dispatchTouchEvent(ev);
+        return consume;
+    }
+
+    private final Random random = new Random();
+    @Override 
+    public boolean onInterceptTouchEvent(MotionEvent ev) {
+//        return super.onInterceptTouchEvent(ev);
+        boolean flag = random.nextBoolean();
+        Log.d(TAG, "onInterceptTouchEvent: flag = " + flag);
+        return flag;
+    }
+
+    @Override
     public boolean onTouchEvent(MotionEvent event) {
+        Log.d(TAG, "onTouchEvent: ");
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
             switchButton();
         }

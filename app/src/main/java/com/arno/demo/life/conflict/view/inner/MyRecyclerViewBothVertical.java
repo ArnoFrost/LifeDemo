@@ -51,12 +51,14 @@ public class MyRecyclerViewBothVertical extends RecyclerView {
         int x = (int) event.getX();
         int y = (int) event.getY();
 
+        boolean customConsume = false;
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN: {
                 //此处开始拦截
                 getParent().requestDisallowInterceptTouchEvent(true);
                 mLastX = x;
                 mLastY = y;
+                customConsume = true;
                 break;
             }
             case MotionEvent.ACTION_MOVE: {
@@ -68,9 +70,12 @@ public class MyRecyclerViewBothVertical extends RecyclerView {
                     if (deltaY > 0) {
                         //向上滑动 同时满足可以继续向上滑动
                         if (!canScrollVertically(-1)) {
+                            customConsume = false;
                             //不可以向上滑动则交由父布局
                             Log.e(TAG, "dispatchTouchEvent: 向上滑动终点 继续不再处理");
                             getParent().requestDisallowInterceptTouchEvent(false);
+                        } else {
+                            customConsume = true;
                         }
                     } else {
                         //向下滑动 同时满足可以继续向下滑动
@@ -78,11 +83,15 @@ public class MyRecyclerViewBothVertical extends RecyclerView {
                             //不可以向下滑动则交由父布局
                             Log.e(TAG, "dispatchTouchEvent: 向下滑动终点 继续不再处理");
                             getParent().requestDisallowInterceptTouchEvent(false);
+                            customConsume = false;
+                        } else {
+                            customConsume = true;
                         }
                     }
                 } else {
                     //横向滚动都则都交由外部 处理
                     getParent().requestDisallowInterceptTouchEvent(false);
+                    customConsume = false;
                 }
                 break;
             }
@@ -92,7 +101,23 @@ public class MyRecyclerViewBothVertical extends RecyclerView {
             default:
                 break;
         }
-        return super.dispatchTouchEvent(event);
+        //重新赋值
+        mLastX = x;
+        mLastY = y;
+
+        boolean consume = super.dispatchTouchEvent(event);
+//        Log.d(TAG, "consume: customResume = " + customConsume);
+//        Log.d(TAG, "consume: consume = " + consume);
+
+
+        boolean isSame = (consume == customConsume);
+
+        Log.d(TAG, "dispatchTouchEvent: consume == customResume : " + isSame);
+
+        if (!isSame) {
+            Log.e(TAG, "dispatchTouchEvent: consume not same " + event.getAction());
+        }
+        return customConsume;
     }
 
 

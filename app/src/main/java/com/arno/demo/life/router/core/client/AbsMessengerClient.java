@@ -81,6 +81,7 @@ public class AbsMessengerClient {
      * @param context
      */
     public void doDestroy(Context context) {
+        clearQueue();
         if (mServerMessenger != null) {
             unbindCustomService(context);
             mServerMessenger = null;
@@ -88,12 +89,15 @@ public class AbsMessengerClient {
 
         if (mClientHandler != null) {
             mClientHandler.removeCallbacksAndMessages(null);
-
             if (mClientHandler.getLooper() != null) {
                 mClientHandler.getLooper().quit();
             }
 
             mClientHandler = null;
+        }
+        //销毁Handler线程
+        if (thread != null) {
+            thread.quitSafely();
         }
 
         mRetryCount = 0;
@@ -277,10 +281,14 @@ public class AbsMessengerClient {
         mIResponseListeners.remove(listener);
     }
 
+    private HandlerThread thread;
 
     private Messenger getClientMessenger() {
         if (mClientHandler == null || mClientMessenger == null) {
-            HandlerThread thread = new HandlerThread("ClientMessenger-HandlerThread");
+            if (thread != null) {
+                thread.quitSafely();
+            }
+            thread = new HandlerThread("ClientMessenger-HandlerThread");
             thread.start();
 
             mClientHandler = new ClientMsgHandler(thread.getLooper());
