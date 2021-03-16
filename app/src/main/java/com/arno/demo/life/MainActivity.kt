@@ -19,7 +19,7 @@ import com.arno.demo.life.loader.ClassLoaderActivity
 import com.arno.demo.life.messenger.MessengerLearnActivity
 import com.arno.demo.life.pref.ViewPrefLearnActivity
 import com.arno.demo.life.router.RouterLearnActivity
-import com.arno.demo.life.share.ShareLearnActivity
+import com.arno.demo.life.share.ShareRootActivity
 import com.arno.demo.life.task.TaskLearnActivity
 import com.arno.demo.life.view.ViewLearnActivity
 
@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun goToShare(view: View?) {
-        startActivity(Intent(this, ShareLearnActivity::class.java))
+        startActivity(Intent(this, ShareRootActivity::class.java))
     }
 
     fun goToHook(view: View?) {

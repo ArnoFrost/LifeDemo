@@ -1,24 +1,24 @@
 package com.arno.demo.life.share
 
+import android.content.Intent
 import android.os.Bundle
-import android.transition.ChangeBounds
-import android.transition.ChangeTransform
-import android.transition.TransitionSet
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
+import androidx.core.app.ActivityCompat
+import androidx.core.app.ActivityOptionsCompat
 import com.arno.demo.life.R
-import com.google.android.material.transition.platform.Hold
 
-class ShareAllActivity : AppCompatActivity() {
+class ShareBActivity : AppCompatActivity() {
     private val root: View by lazy {
-        findViewById(R.id.layout_all)
+        findViewById(R.id.layout_root)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         window.setBackgroundDrawable(null)
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_share_all)
+        //<editor-fold desc="Description">
+        setContentView(R.layout.activity_share_b)
+        //</editor-fold>
 //region test
 //        ViewCompat.setTransitionName(root, "ALL")
 //
@@ -42,7 +42,15 @@ class ShareAllActivity : AppCompatActivity() {
 //endregion
     }
 
-    override fun onBackPressed() {
-        supportFinishAfterTransition()
+    fun goToC(view: View) {
+        val intent = Intent(this, ShareCActivity::class.java)
+        val options =
+            ActivityOptionsCompat.makeSceneTransitionAnimation(this, root, "test")
+        ActivityCompat.startActivity(this, intent, options.toBundle())
+        finish()
     }
+
+//    override fun onBackPressed() {
+//        supportFinishAfterTransition()
+//    }
 }
