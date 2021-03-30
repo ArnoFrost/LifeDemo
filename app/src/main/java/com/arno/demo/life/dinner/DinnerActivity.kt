@@ -1,13 +1,12 @@
 package com.arno.demo.life.dinner
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.arno.demo.life.R
 import com.arno.demo.life.utils.DinnerDataHelper
-import com.arno.demo.life.utils.NoLastItemDividerItemDecoration
-import com.arno.demo.life.utils.RecycleViewDivider
 
 class DinnerActivity : AppCompatActivity() {
     val topRv: RecyclerView by lazy {
@@ -52,5 +51,9 @@ class DinnerActivity : AppCompatActivity() {
             adapter = dinnerCardItemAdapter
         }
 
+    }
+
+    fun goBack(view: View) {
+        supportFinishAfterTransition()
     }
 }

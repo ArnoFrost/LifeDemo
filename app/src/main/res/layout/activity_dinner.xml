@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/title"
         android:layout_width="match_parent"
-        android:layout_height="35dp"
+        android:layout_height="44dp"
         android:background="#333B57"
         android:elevation="4dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,7 +22,8 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginLeft="8dp"
-            android:background="@drawable/back"
+            android:onClick="goBack"
+            android:src="@drawable/back"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -33,7 +34,8 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginLeft="8dp"
-            android:background="@drawable/close"
+            android:onClick="goBack"
+            android:src="@drawable/close"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/iv_back"
             app:layout_constraintTop_toTopOf="parent" />
@@ -43,7 +45,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginRight="8dp"
-            android:background="@drawable/more"
+            android:src="@drawable/more"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
