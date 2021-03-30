@@ -10,6 +10,7 @@ import com.arno.demo.life.annotation.AnnotationLearnActivity
 import com.arno.demo.life.binder.BinderLearnActivity
 import com.arno.demo.life.binder.IntentServiceLearnActivity
 import com.arno.demo.life.conflict.ConflictLearnActivity
+import com.arno.demo.life.dinner.DinnerActivity
 import com.arno.demo.life.event.EventLearnActivity
 import com.arno.demo.life.handler.BlockLearnActivity
 import com.arno.demo.life.handler.HandlerLearnActivity
@@ -27,6 +28,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+    }
+
+    fun goToDinner(view: View?) {
+        startActivity(Intent(this, DinnerActivity::class.java))
     }
 
     fun goToShare(view: View?) {
