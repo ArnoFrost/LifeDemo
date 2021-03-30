@@ -5,6 +5,7 @@ import android.graphics.*
 import android.util.AttributeSet
 import android.view.View
 import android.view.ViewOutlineProvider
+import com.blankj.utilcode.util.ConvertUtils
 
 
 class DinnerCardView(context: Context, attrs: AttributeSet) : View(context, attrs) {
@@ -28,8 +29,15 @@ class DinnerCardView(context: Context, attrs: AttributeSet) : View(context, attr
         PorterDuffXfermode(PorterDuff.Mode.SRC_OUT)
     }
 
-    private val backGroundRect: Rect by lazy {
-        Rect(0, 0, measuredWidth, measuredHeight)
+    private val titleContentWidth = 600F
+    private val titleContentHeight = 120F
+    private val titleRectF: RectF by lazy {
+        RectF(
+            (circleX() - titleContentWidth) / 2,
+            measuredHeight * 0.32.toFloat(),
+            (circleX() + titleContentWidth) / 2,
+            measuredHeight * 0.32.toFloat() + titleContentHeight
+        )
     }
     private var mCornerSize: Float = 18F
 
@@ -51,6 +59,37 @@ class DinnerCardView(context: Context, attrs: AttributeSet) : View(context, attr
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
         drawCard(canvas)
+        drawContent(canvas)
+    }
+
+    private fun drawContent(canvas: Canvas?) {
+        //午餐
+        canvas?.apply {
+            mPaint.apply {
+                color = Color.WHITE
+                textSize = ConvertUtils.sp2px(36F).toFloat()
+            }
+            drawText(
+                "午餐", measuredWidth * 0.25.toFloat(),
+                measuredHeight * 0.25.toFloat(),
+                mPaint
+            )
+        }
+
+        //日期
+        canvas?.apply {
+            mPaint.textSize = ConvertUtils.sp2px(18F).toFloat()
+            drawText(
+                "2021.03.30", measuredWidth * 0.24.toFloat(),
+                measuredHeight * 0.29.toFloat(),
+                mPaint
+            )
+        }
+
+        canvas?.apply {
+            canvas.drawRoundRect(titleRectF, titleContentHeight, titleContentHeight, mPaint)
+        }
+
     }
 
     private val linePathEffect: DashPathEffect by lazy {
@@ -69,8 +108,8 @@ class DinnerCardView(context: Context, attrs: AttributeSet) : View(context, attr
         canvas?.drawRoundRect(backGroundRectF, mCornerSize, mCornerSize / 2, mPaint)
         //2.叠加 扣除圆形
         mPaint.xfermode = circleXFerMode
-        canvas?.drawCircle(circleX(true), circleY(true), circleRadius, mPaint)
-        canvas?.drawCircle(circleX(false), circleY(false), circleRadius, mPaint)
+        canvas?.drawCircle(circleX(), circleY(true), circleRadius, mPaint)
+        canvas?.drawCircle(circleX(), circleY(false), circleRadius, mPaint)
         //3. 清除
         mPaint.xfermode = null
         canvas?.restoreToCount(saved!!)
@@ -82,9 +121,9 @@ class DinnerCardView(context: Context, attrs: AttributeSet) : View(context, attr
             mPaint.strokeWidth = 4F
             mPaint.pathEffect = linePathEffect
             drawLine(
-                circleX(true),
+                circleX(),
                 circleY(true) + circleRadius,
-                circleX(false),
+                circleX(),
                 circleY(false) - circleRadius,
                 mPaint
             )
@@ -105,7 +144,7 @@ class DinnerCardView(context: Context, attrs: AttributeSet) : View(context, attr
 
     }
 
-    private fun circleX(isTop: Boolean): Float {
+    private fun circleX(): Float {
         return (measuredWidth * 0.75).toFloat()
     }
 
