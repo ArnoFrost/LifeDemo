@@ -1,5 +1,6 @@
 package com.arno.demo.life.utils
 
+import com.arno.demo.life.dinner.bean.CardItemParams
 import com.arno.demo.life.dinner.bean.CardParams
 import java.text.SimpleDateFormat
 import java.util.*
@@ -8,19 +9,44 @@ class DinnerDataHelper {
 
     companion object {
         const val LUNCH = 0
-        fun getDefaultCardList(): MutableList<CardParams> {
-            return mutableListOf(getDefaultCard())
-        }
 
-        fun getDefaultCard(): CardParams {
+        fun getDefaultCard(isActive: Boolean): CardParams {
             return CardParams(
                 getCurrentName(),
                 getCurrentDateStr(),
                 getCurrentTimeStr(),
                 LUNCH,
-                true
+                isActive
             )
+        }
 
+        /**
+         * 获取下面展示列表
+         */
+        fun getDefaultCardList(): MutableList<CardItemParams> {
+            val list = mutableListOf<CardItemParams>()
+            //添加今天
+            list.add(getDefaultCardItemParams(true))
+            val random = Random()
+            repeat(random.nextInt(7)) {
+                list.add(getDefaultCardItemParams(random.nextBoolean()))
+            }
+            return list
+        }
+
+        fun getDefaultCardItemParams(dinner: Boolean): CardItemParams {
+
+            return CardItemParams(
+                "午餐",
+                if (dinner) {
+                    "晚餐"
+                } else {
+                    ""
+                },
+                getCurrentDateStr(),
+                getCurrentTimeStr(),
+                getCurrentTimeStr()
+            )
         }
 
 

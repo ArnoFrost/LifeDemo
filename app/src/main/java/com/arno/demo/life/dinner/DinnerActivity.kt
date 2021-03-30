@@ -6,6 +6,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.arno.demo.life.R
 import com.arno.demo.life.utils.DinnerDataHelper
+import com.arno.demo.life.utils.NoLastItemDividerItemDecoration
+import com.arno.demo.life.utils.RecycleViewDivider
 
 class DinnerActivity : AppCompatActivity() {
     val topRv: RecyclerView by lazy {
@@ -27,18 +29,28 @@ class DinnerActivity : AppCompatActivity() {
     }
 
     private lateinit var dinnerCardAdapter: DinnerCardAdapter
+    private lateinit var dinnerCardItemAdapter: DinnerItemAdapter
     private fun initCard() {
         dinnerCardAdapter = DinnerCardAdapter().apply {
-            cardList.addAll(DinnerDataHelper.getDefaultCardList())
+            cardList.add(DinnerDataHelper.getDefaultCard(true))
+            cardList.add(DinnerDataHelper.getDefaultCard(false))
         }
         topRv.apply {
-            layoutManager = LinearLayoutManager(this@DinnerActivity, RecyclerView.HORIZONTAL, false)
+            layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
             adapter = dinnerCardAdapter
         }
-
     }
 
     private fun initContent() {
+        dinnerCardItemAdapter = DinnerItemAdapter().apply {
+            cardItemList.addAll(DinnerDataHelper.getDefaultCardList())
+        }
+
+        contentRv.apply {
+            layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+//            addItemDecoration(NoLastItemDividerItemDecoration(context, LinearLayoutManager.VERTICAL))
+            adapter = dinnerCardItemAdapter
+        }
 
     }
 }
