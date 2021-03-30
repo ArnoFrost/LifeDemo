@@ -1,15 +1,16 @@
 package com.arno.demo.life.share
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.app.ActivityOptionsCompat
 import com.arno.demo.life.R
 
 class ShareRootActivity : AppCompatActivity() {
-    private val btnAll: Button by lazy {
-        findViewById(R.id.btn_all)
+    private val root: View by lazy {
+        findViewById(R.id.root)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,13 +18,18 @@ class ShareRootActivity : AppCompatActivity() {
         setContentView(R.layout.activity_share_root)
     }
 
-    fun goToAll(view: View) {
+    fun go2BActivity(view: View) {
         val intent = Intent(this, ShareBActivity::class.java)
-//        val options =
-//            ActivityOptionsCompat.makeSceneTransitionAnimation(this, btnAll, "test")
-//        ActivityCompat.startActivity(this, intent, options.toBundle())
+        val options =
+            ActivityOptionsCompat.makeSceneTransitionAnimation(this, root, KEY)
+        //放置截屏
+        PushBitmapCacheManager.getInstance().putBitmapByScale(KEY, root)
+        //启动转场
+        ActivityCompat.startActivity(this, intent, options.toBundle())
+    }
 
-        startActivity(intent)
-
+    companion object {
+        private const val TAG = "ShareRootActivity"
+        const val KEY = "ShareRoot"
     }
 }

@@ -1,56 +1,62 @@
 package com.arno.demo.life.share
 
-import android.content.Intent
 import android.os.Bundle
-import android.view.View
+import android.transition.ChangeBounds
+import android.transition.ChangeClipBounds
+import android.transition.Transition
+import android.view.animation.AccelerateDecelerateInterpolator
+import android.view.animation.AccelerateInterpolator
+import android.view.animation.AnticipateOvershootInterpolator
+import android.view.animation.OvershootInterpolator
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
-import androidx.core.app.ActivityOptionsCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.animation.PathInterpolatorCompat
 import com.arno.demo.life.R
 
 class ShareBActivity : AppCompatActivity() {
-    private val root: View by lazy {
-        findViewById(R.id.layout_root)
+    private val image: ImageView by lazy {
+        findViewById(R.id.image)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        window.setBackgroundDrawable(null)
+        //暂停动画
+        initSharedWindow()
         super.onCreate(savedInstanceState)
-        //<editor-fold desc="Description">
         setContentView(R.layout.activity_share_b)
-        //</editor-fold>
-//region test
-//        ViewCompat.setTransitionName(root, "ALL")
-//
-////        window.enterTransition = Fade()
-//        window.enterTransition = Hold()
-//
-//        val apply = TransitionSet().apply {
-//            addTransition(ChangeBounds())
-//            addTransition(ChangeTransform())
-//            addTarget(root)
-//        }
-//
-//        window.sharedElementEnterTransition = apply
-//        window.sharedElementExitTransition = apply
-//endregion
-
-//region 动画
-//        postponeEnterTransition()
-
-//        supportStartPostponedEnterTransition()
-//endregion
+        initSharedView()
     }
 
-    fun goToC(view: View) {
-        val intent = Intent(this, ShareCActivity::class.java)
-        val options =
-            ActivityOptionsCompat.makeSceneTransitionAnimation(this, root, "test")
-        ActivityCompat.startActivity(this, intent, options.toBundle())
-        finish()
+    private fun initSharedWindow() {
+        window.setBackgroundDrawable(null)
+        supportPostponeEnterTransition()
+        window.sharedElementEnterTransition = getSnapShotTrans(1000)
     }
 
-//    override fun onBackPressed() {
-//        supportFinishAfterTransition()
-//    }
+    private fun initSharedView() {
+        //设置共享
+        ViewCompat.setTransitionName(image, ShareRootActivity.KEY)
+        //填充图片
+        image.setImageBitmap(PushBitmapCacheManager.getInstance().getBitmap(ShareRootActivity.KEY))
+        //开始动效
+        supportStartPostponedEnterTransition()
+    }
+
+    private fun getSnapShotTrans(duration: Long): Transition? {
+        // 尝试覆写透明转场效果
+        /**
+         * ChangeBounds 改变目标布局中view的边界
+         * ChangeClipBounds 裁剪目标布局中view的边界
+         * ChangeTransform 实现旋转或者缩放动画
+         */
+        val trans: Transition = ChangeBounds()
+        trans.duration = duration
+        val interpolator = AccelerateInterpolator(1.5F)
+//        val interpolator = PathInterpolatorCompat.create(0F, 0.5F, 0.5F, 0.2F)
+//        val interpolator = AnticipateOvershootInterpolator(3F)
+
+        trans.interpolator = interpolator
+
+        return trans
+    }
 }

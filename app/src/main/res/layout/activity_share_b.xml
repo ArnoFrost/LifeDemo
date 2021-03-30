@@ -1,22 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/layout_root"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#2196F3"
-    android:transitionName="test"
     tools:context=".share.ShareBActivity">
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_B"
+        app:layout_constraintEnd_toEndOf="@+id/btn_B"
+        app:layout_constraintHorizontal_bias="0.465"
+        app:layout_constraintStart_toStartOf="@+id/btn_B"
+        app:layout_constraintTop_toTopOf="@+id/btn_B"
+        app:layout_constraintVertical_bias="0.31"
+        tools:background="@color/black" />
 
     <Button
         android:id="@+id/btn_B"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:onClick="goToC"
         android:text="B"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.467"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.127" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
