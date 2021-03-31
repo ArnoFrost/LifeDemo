@@ -1,6 +1,7 @@
 package com.arno.demo.life.dinner
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -18,7 +19,8 @@ class DinnerActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_dinner)
+        val root = LayoutInflater.from(this).inflate(R.layout.activity_dinner, null, false)
+        setContentView(root)
         initView()
     }
 

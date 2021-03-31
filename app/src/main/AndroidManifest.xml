@@ -15,7 +15,7 @@
         android:theme="@style/Theme.LifeDemo">
         <activity
             android:name=".dinner.DinnerActivity"
-            android:theme="@style/NoTitleTranslucentTheme" />
+            android:theme="@style/DinnerTheme" />
         <activity android:name=".share.ShareCActivity" />
         <activity
             android:name=".share.ShareBActivity"
