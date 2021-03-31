@@ -1,5 +1,7 @@
 package com.arno.demo.life.utils
 
+import android.text.TextUtils
+import android.util.Log
 import com.arno.demo.life.dinner.bean.CardItemParams
 import com.arno.demo.life.dinner.bean.CardParams
 import java.text.SimpleDateFormat
@@ -8,7 +10,47 @@ import java.util.*
 class DinnerDataHelper {
 
     companion object {
-        const val LUNCH = 0
+        const val TAG = "DinnerDataHelper"
+
+        const val BREAKFAST = 0
+        const val LUNCH = 1
+        const val DINNER = 2
+
+        private val DateFormat = SimpleDateFormat("yyyy.MM.dd")
+        private val TimeFormat = SimpleDateFormat("HH:mm")
+        private val BREAKFAST_STR = "早餐"
+        private val LUNCH_STR = "午餐"
+        private val DINNER_STR = "晚餐"
+
+        fun getDefaultCardByItem(itemList: MutableList<CardItemParams>): MutableList<CardParams> {
+            val cardList = mutableListOf<CardParams>()
+            itemList.forEachIndexed { index, value ->
+                //填充数据
+                if (value.leftName.isNotBlank()) {
+                    cardList.add(
+                        CardParams(
+                            value.leftName,
+                            value.dateStr,
+                            value.leftTimeStr,
+                            LUNCH,
+                            index == 0
+                        )
+                    )
+                    if (value.rightName.isNotBlank()) {
+                        cardList.add(
+                            CardParams(
+                                value.rightName,
+                                value.dateStr,
+                                value.rightTimeStr,
+                                DINNER,
+                                index == 0
+                            )
+                        )
+                    }
+                }
+            }
+            return cardList
+        }
 
         fun getDefaultCard(isActive: Boolean): CardParams {
             return CardParams(
@@ -23,18 +65,21 @@ class DinnerDataHelper {
         /**
          * 获取下面展示列表
          */
-        fun getDefaultCardList(): MutableList<CardItemParams> {
+        fun getDefaultCardList(randomValue: Int): MutableList<CardItemParams> {
             val list = mutableListOf<CardItemParams>()
             //添加今天
-            list.add(getDefaultCardItemParams(true))
+            list.add(getDefaultCardItemParams(0, true))
             val random = Random()
-            repeat(random.nextInt(7)) {
-                list.add(getDefaultCardItemParams(random.nextBoolean()))
+            repeat(random.nextInt(randomValue)) {
+                val dateItemParams = getDefaultCardItemParams(it + 1, random.nextBoolean())
+                if (!TextUtils.isEmpty(dateItemParams.dateStr)) {
+                    list.add(dateItemParams)
+                }
             }
             return list
         }
 
-        fun getDefaultCardItemParams(dinner: Boolean): CardItemParams {
+        fun getDefaultCardItemParams(dayCount: Int, dinner: Boolean): CardItemParams {
 
             return CardItemParams(
                 "午餐",
@@ -43,7 +88,7 @@ class DinnerDataHelper {
                 } else {
                     ""
                 },
-                getCurrentDateStr(),
+                getDateStr(dayCount),
                 getFixCurrentTimeStr(false),
                 getFixCurrentTimeStr(true)
             )
@@ -58,11 +103,11 @@ class DinnerDataHelper {
             val currentData = Date()
 
             return if (currentData >= morning && currentData < noon) {
-                "早餐"
+                BREAKFAST_STR
             } else if (currentData >= noon && currentData < noonEnd) {
-                "午餐"
+                LUNCH_STR
             } else {
-                "晚餐"
+                DINNER_STR
             }
         }
 
@@ -152,20 +197,42 @@ class DinnerDataHelper {
             }.time
         }
 
+
+        private fun getDateStr(dayCount: Int): String {
+            Log.d(TAG, "getDateStr() called with: dayCount = $dayCount")
+            if (dayCount == 0) {
+                return getCurrentDateStr()
+            }
+            val date = Calendar.getInstance().apply {
+                set(
+                    Calendar.DAY_OF_MONTH,
+                    Calendar.getInstance().get(Calendar.DAY_OF_MONTH) - dayCount
+                )
+            }
+            //如果是周六或周日
+            if (date.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY
+                || date.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY
+            ) {
+                return ""
+            }
+            return DateFormat.run {
+                format(date.time)
+            }
+
+        }
+
         /**
          * 获取日期字符串
          */
         private fun getCurrentDateStr(): String {
-            val sdf = SimpleDateFormat("yyyy.MM.dd")
-            return sdf.format(Date())
+            return DateFormat.format(Date())
         }
 
         /**
          * 获取时间段字符串
          */
         private fun getCardTimeStr(date: Date): String {
-            val sdf = SimpleDateFormat("HH:mm")
-            return sdf.format(date)
+            return TimeFormat.format(date)
         }
 
         /**

@@ -8,5 +8,5 @@ data class CardParams(
     val dateStr: String,
     val timeStr: String,
     val type: Int,
-    val isActive: Boolean
+    val isActive: Boolean,
 )

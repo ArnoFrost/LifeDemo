@@ -13,5 +13,7 @@
     <color name="gray_600">#FF757575</color>
 
     <color name="transparent">#00000000</color>
+    <color name="date_active">#FF45B785</color>
+    <color name="date_deactive">#FF9C9C9C</color>
 
 </resources>

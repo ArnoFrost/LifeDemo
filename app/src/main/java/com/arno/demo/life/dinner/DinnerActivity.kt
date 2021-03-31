@@ -23,16 +23,16 @@ class DinnerActivity : AppCompatActivity() {
     }
 
     private fun initView() {
-        initCard()
         initContent()
+        initCard()
     }
 
     private lateinit var dinnerCardAdapter: DinnerCardAdapter
     private lateinit var dinnerCardItemAdapter: DinnerItemAdapter
     private fun initCard() {
         dinnerCardAdapter = DinnerCardAdapter().apply {
-            cardList.add(DinnerDataHelper.getDefaultCard(true))
-            cardList.add(DinnerDataHelper.getDefaultCard(false))
+            //反向填充数据确保合理性
+            cardList.addAll(DinnerDataHelper.getDefaultCardByItem(dinnerCardItemAdapter.cardItemList))
         }
         topRv.apply {
             layoutManager = LinearLayoutManager(context, RecyclerView.HORIZONTAL, false)
@@ -42,12 +42,11 @@ class DinnerActivity : AppCompatActivity() {
 
     private fun initContent() {
         dinnerCardItemAdapter = DinnerItemAdapter().apply {
-            cardItemList.addAll(DinnerDataHelper.getDefaultCardList())
+            cardItemList.addAll(DinnerDataHelper.getDefaultCardList(9))
         }
 
         contentRv.apply {
             layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL, false)
-//            addItemDecoration(NoLastItemDividerItemDecoration(context, LinearLayoutManager.VERTICAL))
             adapter = dinnerCardItemAdapter
         }
 

@@ -34,21 +34,28 @@ class DinnerCardAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         fun bind(cardParams: CardParams?) {
             cardParams?.let {
                 with(itemView) {
-                    val cardBg = findViewById<ImageView>(R.id.card_bg).apply {
-                        if (cardParams.isActive) {
+                    findViewById<ImageView>(R.id.card_bg).apply {
+                        background = if (cardParams.isActive) {
                             ContextCompat.getDrawable(itemView.context, R.drawable.green)
                         } else {
                             ContextCompat.getDrawable(itemView.context, R.drawable.grey)
                         }
                     }
-                    val carTitle = findViewById<TextView>(R.id.tv_title).apply {
+                    findViewById<TextView>(R.id.tv_title).apply {
                         text = it.name
                     }
-                    val carDate = findViewById<TextView>(R.id.tv_date).apply {
+                    findViewById<TextView>(R.id.tv_date).apply {
                         text = it.dateStr
                     }
-                    val carTime = findViewById<TextView>(R.id.tv_time).apply {
+                    findViewById<TextView>(R.id.tv_time).apply {
                         text = it.timeStr
+                        setTextColor(
+                            if (cardParams.isActive) {
+                                context.getColor(R.color.date_active)
+                            } else {
+                                context.getColor(R.color.date_deactive)
+                            }
+                        )
                     }
                 }
             }
