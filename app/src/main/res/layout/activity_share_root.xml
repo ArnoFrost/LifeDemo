@@ -19,4 +19,25 @@
         android:text="ROOT"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
+    <Button
+        android:id="@+id/btn_c"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:onClick="go2CActivity"
+        android:text="SharedC"
+        android:transitionName="sharedC"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/btn_all" />
+
+    <ImageView
+        android:id="@+id/snap"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintEnd_toEndOf="@+id/btn_c"
+        app:layout_constraintStart_toStartOf="@+id/btn_c"
+        app:layout_constraintTop_toTopOf="@+id/btn_c"
+        tools:visibility="visible" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,11 +16,15 @@
         <activity
             android:name=".dinner.DinnerActivity"
             android:theme="@style/DinnerTheme" />
-        <activity android:name=".share.ShareCActivity" />
+        <activity
+            android:name=".share.ShareCActivity"
+            android:theme="@style/NoTitleTranslucentTheme" />
         <activity
             android:name=".share.ShareBActivity"
             android:theme="@style/NoTitleTranslucentTheme" />
-        <activity android:name=".share.ShareRootActivity" />
+        <activity
+            android:name=".share.ShareRootActivity"
+            android:launchMode="singleTask" />
         <activity android:name=".hook.HookLearnActivity" />
 
         <service
