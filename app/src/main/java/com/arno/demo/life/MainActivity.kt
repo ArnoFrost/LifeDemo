@@ -7,8 +7,6 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.arno.demo.life.annotation.AnnotationLearnActivity
-import com.arno.demo.life.binder.BinderLearnActivity
-import com.arno.demo.life.binder.IntentServiceLearnActivity
 import com.arno.demo.life.conflict.ConflictLearnActivity
 import com.arno.demo.life.dinner.DinnerActivity
 import com.arno.demo.life.event.EventLearnActivity
@@ -22,12 +20,17 @@ import com.arno.demo.life.pref.ViewPrefLearnActivity
 import com.arno.demo.life.router.RouterLearnActivity
 import com.arno.demo.life.share.ShareRootActivity
 import com.arno.demo.life.task.TaskLearnActivity
+import com.arno.demo.life.view.TestConstraintlayoutActivity
 import com.arno.demo.life.view.ViewLearnActivity
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+    }
+
+    fun goToConstTest(view: View?) {
+        startActivity(Intent(this, TestConstraintlayoutActivity::class.java))
     }
 
     fun goToDinner(view: View?) {
@@ -40,14 +43,6 @@ class MainActivity : AppCompatActivity() {
 
     fun goToHook(view: View?) {
         startActivity(Intent(this, HookLearnActivity::class.java))
-    }
-
-    fun goToIntent(view: View?) {
-        startActivity(Intent(this, IntentServiceLearnActivity::class.java))
-    }
-
-    fun goToBinder(view: View?) {
-        startActivity(Intent(this, BinderLearnActivity::class.java))
     }
 
     fun goToLife(view: View?) {

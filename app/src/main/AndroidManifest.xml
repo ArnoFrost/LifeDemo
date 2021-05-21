@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LifeDemo">
         <activity
+            android:name=".view.TestConstraintlayoutActivity"
+            android:exported="true" />
+        <activity
             android:name=".dinner.DinnerActivity"
             android:theme="@style/DinnerTheme" />
         <activity
@@ -26,24 +29,6 @@
             android:name=".share.ShareRootActivity"
             android:launchMode="singleTask" />
         <activity android:name=".hook.HookLearnActivity" />
-
-        <service
-            android:name=".binder.CustomIntentService"
-            android:exported="false" />
-
-        <activity android:name=".binder.IntentServiceLearnActivity" />
-
-        <service
-            android:name=".binder.MyIntentService"
-            android:exported="true" />
-
-        <activity android:name=".binder.BinderLearnActivity" />
-
-        <service
-            android:name=".binder.bean.RemoteService"
-            android:enabled="true"
-            android:exported="true" />
-
         <activity android:name=".handler.BlockLearnActivity" />
         <activity android:name=".pref.ViewPrefLearnActivity" />
         <activity android:name=".router.RouterLearnActivity" />
@@ -56,10 +41,6 @@
         <service
             android:name=".router.module.main.MainRemoteService"
             android:exported="true" />
-        <service
-            android:name=".binder.RemoteService"
-            android:exported="true"
-            android:process=":remote.service" />
 
         <activity android:name=".handler.HandlerLearnActivity" />
         <activity android:name=".annotation.AnnotationLearnActivity" />

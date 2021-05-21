@@ -12,6 +12,14 @@
         android:orientation="vertical">
 
         <Button
+            android:id="@+id/btn_test_const"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:onClick="goToConstTest"
+            android:text="ConstraintLayout测试" />
+
+        <Button
             android:id="@+id/btn_dinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -35,21 +43,6 @@
             android:onClick="goToHook"
             android:text="Hook学习" />
 
-        <Button
-            android:id="@+id/btn_intent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:onClick="goToIntent"
-            android:text="IntentService学习" />
-
-        <Button
-            android:id="@+id/btn_binder"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:onClick="goToBinder"
-            android:text="Binder学习" />
 
         <Button
             android:id="@+id/btn_block"
