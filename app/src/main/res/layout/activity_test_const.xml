@@ -6,4 +6,152 @@
     android:layout_height="match_parent"
     tools:context=".view.TestConstraintlayoutActivity">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#BBBFBD"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.499">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_content"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="#4CAF50"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/iv_hot"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_person_1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="#2196F3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tv_reply"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0">
+
+                <androidx.constraintlayout.widget.Barrier
+                    android:id="@+id/vertical_barrier"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:barrierDirection="left"
+                    app:constraint_referenced_ids="guide_vertical" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guide_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.5" />
+
+                <androidx.constraintlayout.widget.Group
+                    android:id="@+id/person_1_group"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#F44336"
+                    app:constraint_referenced_ids="person_1_group,iv_person1_icon_1" />
+
+                <TextView
+                    android:id="@+id/tv_person1_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/icon_barrier"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="asdasd" />
+                <!--                "aslkdjaslkdjaslkdjasldkjasdlka-->
+                <!--                "hello-->
+
+                <androidx.constraintlayout.widget.Barrier
+                    android:id="@+id/icon_barrier"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:barrierDirection="left"
+                    app:constraint_referenced_ids="iv_person1_icon_1" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/iv_person1_icon_1"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@mipmap/ic_launcher"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/vertical_barrier"
+                    app:layout_constraintStart_toEndOf="@+id/tv_person1_name"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:visibility="gone" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.Group
+                android:id="@+id/group_person2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:constraint_referenced_ids="tv_reply,cl_person2"
+                tools:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tv_reply"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="回复 > "
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/cl_person2"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/cl_person_1"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/cl_person2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:background="#FF9800"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/tv_reply"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <TextView
+            android:id="@+id/tv_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="点赞"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_hot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/abc_vector_test"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tv_like"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
