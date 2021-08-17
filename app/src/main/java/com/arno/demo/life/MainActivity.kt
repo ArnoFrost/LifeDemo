@@ -16,6 +16,7 @@ import com.arno.demo.life.hook.HookLearnActivity
 import com.arno.demo.life.life.LifeLearnActivity
 import com.arno.demo.life.loader.ClassLoaderActivity
 import com.arno.demo.life.messenger.MessengerLearnActivity
+import com.arno.demo.life.motion.MotionActivity
 import com.arno.demo.life.pref.ViewPrefLearnActivity
 import com.arno.demo.life.router.RouterLearnActivity
 import com.arno.demo.life.share.ShareRootActivity
@@ -27,6 +28,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+    }
+
+    fun goToMotion(view: View?) {
+        startActivity(Intent(this, MotionActivity::class.java))
     }
 
     fun goToConstTest(view: View?) {
