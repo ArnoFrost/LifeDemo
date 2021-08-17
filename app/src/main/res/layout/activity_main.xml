@@ -12,6 +12,14 @@
         android:orientation="vertical">
 
         <Button
+            android:id="@+id/btn_motion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:onClick="goToMotion"
+            android:text="MotionLayout" />
+
+        <Button
             android:id="@+id/btn_test_const"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
