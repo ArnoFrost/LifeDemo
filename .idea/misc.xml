@@ -22,9 +22,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="../../../../layout/custom_preview.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.18802083333333333" />
-        <entry key="app/src/main/res/layout/activity_test_const.xml" value="0.5735475896168108" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.13858695652173914" />
+        <entry key="app/src/main/res/layout/activity_motion.xml" value="0.2109375" />
+        <entry key="app/src/main/res/layout/activity_motion_scene1.xml" value="0.21197916666666666" />
+        <entry key="app/src/main/res/layout/activity_motion_scene2.xml" value="0.21197916666666666" />
       </map>
     </option>
   </component>
@@ -34,12 +35,7 @@
     <option name="priority" value="Medium" />
     <option name="excludeFilter" value="" />
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
-    <output url="file://$PROJECT_DIR$/build/classes" />
-  </component>
-  <component name="ProjectType">
-    <option name="id" value="Android" />
-  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="Android API 28 Platform" project-jdk-type="Android SDK" />
   <component name="SuppressionsComponent">
     <option name="suppComments" value="[]" />
   </component>

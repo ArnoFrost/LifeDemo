@@ -17,6 +17,9 @@
             android:name=".view.TestConstraintlayoutActivity"
             android:exported="true" />
         <activity
+            android:name=".motion.MotionActivity"
+            android:exported="true" />
+        <activity
             android:name=".dinner.DinnerActivity"
             android:theme="@style/DinnerTheme" />
         <activity
