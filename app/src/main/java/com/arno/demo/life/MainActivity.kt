@@ -24,6 +24,7 @@ import com.arno.demo.life.pref.ViewPrefLearnActivity
 import com.arno.demo.life.router.RouterLearnActivity
 import com.arno.demo.life.share.ShareRootActivity
 import com.arno.demo.life.task.TaskLearnActivity
+import com.arno.demo.life.view.DesktopDialogActivity
 import com.arno.demo.life.view.TestConstraintlayoutActivity
 import com.arno.demo.life.view.ViewLearnActivity
 
@@ -37,6 +38,10 @@ class MainActivity : AppCompatActivity() {
             }
         }
         setContentView(c)
+    }
+
+    fun goToDialog(view: View?) {
+        startActivity(Intent(this, DesktopDialogActivity::class.java))
     }
 
     fun goToMotion(view: View?) {

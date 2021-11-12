@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ASMIdeaPluginConfiguration">
+    <asm skipDebug="false" skipFrames="false" skipCode="false" expandFrames="false" />
+    <groovy codeStyle="LEGACY" />
+  </component>
   <component name="CheckstyleConfigurable">
     <option name="suppFilterFilename" value="" />
     <option name="suppCommentFilter" value="false" />
@@ -22,11 +26,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/layout/activity_desktop_dialog.xml" value="0.24094202898550723" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.13858695652173914" />
         <entry key="app/src/main/res/layout/activity_motion.xml" value="0.2109375" />
         <entry key="app/src/main/res/layout/activity_motion_scene1.xml" value="0.21197916666666666" />
         <entry key="app/src/main/res/layout/activity_motion_scene2.xml" value="0.21197916666666666" />
         <entry key="app/src/main/res/layout/activity_view_learn.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/desktop_pop_layout.xml" value="0.2722222222222222" />
+        <entry key="app/src/main/res/layout/desktop_pop_layout_scence1.xml" value="0.14361702127659576" />
+        <entry key="app/src/main/res/layout/desktop_pop_layout_scene2.xml" value="0.13677811550151975" />
+        <entry key="app/src/main/res/layout/item_text.xml" value="0.2953125" />
+        <entry key="app/src/main/res/layout/item_text_view.xml" value="0.2953125" />
       </map>
     </option>
   </component>
