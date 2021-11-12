@@ -5,10 +5,12 @@
     android:id="@+id/desktop_dialog"
     android:layout_width="match_parent"
     android:layout_height="300dp"
+    android:visibility="gone"
     app:layoutDescription="@xml/desktop_pop_layout_scene"
     app:motionDebug="SHOW_PATH"
     app:showPaths="true"
-    tools:context=".view.DesktopDialogActivity">
+    tools:context=".view.DesktopDialogActivity"
+    tools:visibility="visible">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_top"

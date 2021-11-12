@@ -1,13 +1,16 @@
 package com.arno.demo.life.view
 
 import android.content.Context
+import android.graphics.Color
 import android.util.AttributeSet
+import android.view.View
 import android.widget.ImageView
 import androidx.appcompat.widget.LinearLayoutCompat
 import androidx.constraintlayout.motion.widget.MotionLayout
+import androidx.constraintlayout.motion.widget.TransitionAdapter
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.arno.demo.life.BuildConfig
 import com.arno.demo.life.R
 import com.arno.demo.life.conflict.SimpleAdapter
 import com.arno.demo.life.utils.NoLastItemDividerItemDecoration
@@ -28,6 +31,9 @@ class DesktopPopWindow @JvmOverloads constructor(
     private val adapter = SimpleAdapter(dataList)
 
     init {
+        if (BuildConfig.DEBUG) {
+            setBackgroundColor(Color.BLUE)
+        }
         inflate(context, R.layout.desktop_pop_layout, this).apply {
             ivArrow = findViewById(R.id.iv_arrow)
             rv = findViewById(R.id.rv)
@@ -42,15 +48,33 @@ class DesktopPopWindow @JvmOverloads constructor(
             }
             rv.adapter = this@DesktopPopWindow.adapter
             addItemDecoration(NoLastItemDividerItemDecoration(context, VERTICAL))
+            setOnOverScrollListener { direct, offset ->
+                if (offset < -100) {
+                    hideDialog()
+                }
+            }
         }
     }
 
     fun showDialog() {
         rv.scrollToPosition(0)
+        rootMotionView.visibility = View.VISIBLE
         rootMotionView.transitionToEnd()
     }
 
     fun hideDialog() {
         rootMotionView.transitionToStart()
+        rootMotionView.addTransitionListener(object : TransitionAdapter() {
+            override fun onTransitionCompleted(motionLayout: MotionLayout?, currentId: Int) {
+                when (motionLayout?.currentState) {
+                    // 回归到播放场景后隐藏布局
+                    R.id.start -> {
+                        motionLayout.visibility = View.GONE
+                    }
+                    else -> {
+                    }
+                }
+            }
+        })
     }
 }

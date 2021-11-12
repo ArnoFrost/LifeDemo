@@ -1,7 +1,6 @@
 package com.arno.demo.life.view;
 
 
-
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
@@ -9,6 +8,7 @@ import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.util.Property;
 import android.view.MotionEvent;
 import android.view.View;
@@ -41,6 +41,7 @@ public class OverScrollRecyclerView extends RecyclerView implements View.OnTouch
     private final OverScrollStartAttributes mStartAttr = new OverScrollStartAttributes();
     private float mVelocity;
     private final RecyclerView mRecyclerView = this;
+    private OnOverScrollListener onOverScrollListener;
 
     public OverScrollRecyclerView(Context context) {
         this(context, null);
@@ -167,8 +168,10 @@ public class OverScrollRecyclerView extends RecyclerView implements View.OnTouch
     protected interface IDecoratorState {
         // 处理move事件
         boolean handleMoveTouchEvent(MotionEvent event);
+
         // 处理up事件
         boolean handleUpTouchEvent(MotionEvent event);
+
         // 事件结束后的动画处理
         void handleTransitionAnim(IDecoratorState fromState);
     }
@@ -205,7 +208,8 @@ public class OverScrollRecyclerView extends RecyclerView implements View.OnTouch
         }
 
         @Override
-        public void handleTransitionAnim(IDecoratorState fromState) { }
+        public void handleTransitionAnim(IDecoratorState fromState) {
+        }
     }
 
     class OverScrollingState implements IDecoratorState {
@@ -251,6 +255,10 @@ public class OverScrollRecyclerView extends RecyclerView implements View.OnTouch
                 return true;
             }
 
+            if (onOverScrollListener != null) {
+                onOverScrollListener.onOverScrolled(mMoveAttr.mDir, newOffset);
+            }
+
             // 不让父类截获move事件
             if (view.getParent() != null) {
                 view.getParent().requestDisallowInterceptTouchEvent(true);
@@ -275,7 +283,8 @@ public class OverScrollRecyclerView extends RecyclerView implements View.OnTouch
         }
 
         @Override
-        public void handleTransitionAnim(IDecoratorState fromState) { }
+        public void handleTransitionAnim(IDecoratorState fromState) {
+        }
     }
 
     class BounceBackState implements IDecoratorState,
@@ -365,16 +374,32 @@ public class OverScrollRecyclerView extends RecyclerView implements View.OnTouch
         }
 
         @Override
-        public void onAnimationUpdate(ValueAnimator animation) { }
+        public void onAnimationUpdate(ValueAnimator animation) {
+        }
 
         @Override
-        public void onAnimationStart(Animator animation) { }
+        public void onAnimationStart(Animator animation) {
+        }
 
         @Override
-        public void onAnimationCancel(Animator animation) { }
+        public void onAnimationCancel(Animator animation) {
+        }
 
         @Override
-        public void onAnimationRepeat(Animator animation) { }
+        public void onAnimationRepeat(Animator animation) {
+        }
     }
 
+
+    public interface OnOverScrollListener {
+        void onOverScrolled(boolean direct, float offset);
+    }
+
+    public OnOverScrollListener getOnOverScrollListener() {
+        return onOverScrollListener;
+    }
+
+    public void setOnOverScrollListener(OnOverScrollListener onOverScrollListener) {
+        this.onOverScrollListener = onOverScrollListener;
+    }
 }
