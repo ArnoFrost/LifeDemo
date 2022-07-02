@@ -3,13 +3,16 @@ package com.arno.demo.life
 import android.content.Intent
 import android.os.Bundle
 import android.view.KeyEvent
+import android.view.LayoutInflater
 import android.view.View
+import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.arno.demo.life.annotation.AnnotationLearnActivity
 import com.arno.demo.life.conflict.ConflictLearnActivity
 import com.arno.demo.life.dinner.DinnerActivity
 import com.arno.demo.life.event.EventLearnActivity
+import com.arno.demo.life.fragment.FragmentLearnActivity
 import com.arno.demo.life.handler.BlockLearnActivity
 import com.arno.demo.life.handler.HandlerLearnActivity
 import com.arno.demo.life.hook.HookLearnActivity
@@ -27,7 +30,13 @@ import com.arno.demo.life.view.ViewLearnActivity
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        val c = LayoutInflater.from(this).inflate(R.layout.activity_main, null, false)
+        c.apply {
+            findViewById<Button>(R.id.btn_fragment).setOnClickListener {
+                startActivity(Intent(this@MainActivity, FragmentLearnActivity::class.java))
+            }
+        }
+        setContentView(c)
     }
 
     fun goToMotion(view: View?) {
