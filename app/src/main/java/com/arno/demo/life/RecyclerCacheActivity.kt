@@ -11,6 +11,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class RecyclerCacheActivity : AppCompatActivity() {
+    companion object {
+        private const val TAG = "RecyclerCacheActivity"
+    }
+
     class ItemData(val name: String, val viewType: Int)
 
     val data = listOf(
@@ -57,14 +61,17 @@ class RecyclerCacheActivity : AppCompatActivity() {
             position: Int,
             viewType: Int
         ): View? {
-            Log.d("RecyclerView", "ViewCacheExtension is hit")
+            Log.d(
+                TAG,
+                "getViewForPositionAndType() is hit with: recycler = $recycler, position = $position, viewType = $viewType"
+            )
             return null
         }
     }
 
     class CustomRecycledViewPool : RecyclerView.RecycledViewPool() {
         override fun getRecycledView(viewType: Int): RecyclerView.ViewHolder? {
-            Log.d("RecyclerView", "RecycledViewPool is hit")
+            Log.d(TAG, "getRecycledView() is hit with: viewType = $viewType")
             return super.getRecycledView(viewType)
         }
     }
@@ -101,13 +108,18 @@ class RecyclerCacheActivity : AppCompatActivity() {
         override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
             // 根据 itemViewType 来绑定数据
             when (holder) {
-                is ViewHolderOne -> holder.bind(data[position])
-                is ViewHolderTwo -> holder.bind(data[position])
+                is ViewHolderOne -> holder.bind(data[position].name)
+                is ViewHolderTwo -> holder.bind(data[position].name)
             }
         }
 
         override fun getItemCount(): Int {
             return data.size
+        }
+
+        override fun onViewRecycled(holder: RecyclerView.ViewHolder) {
+            super.onViewRecycled(holder)
+            Log.d(TAG, "onViewRecycled")
         }
 
         class ViewHolderOne(itemView: View) : RecyclerView.ViewHolder(itemView) {
