@@ -1,4 +1,4 @@
-package com.arno.demo.life.fragment.ui.main
+package com.arno.demo.life.base
 
 import android.os.Bundle
 import android.util.Log

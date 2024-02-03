@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LifeDemo">
         <activity
-            android:name=".fragment.FragmentLearnActivity"
+            android:name=".fragment.FragmentLearnActivityBase"
             android:exported="false" />
         <activity
             android:name=".rxjava.RxJavaActivity"

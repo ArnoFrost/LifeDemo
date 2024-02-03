@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import com.arno.demo.life.R
+import com.arno.demo.life.base.BaseLifeFragment
 
 class FragmentLearnFragment : BaseLifeFragment() {
 

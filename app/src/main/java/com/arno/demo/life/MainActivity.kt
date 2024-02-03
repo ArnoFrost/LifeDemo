@@ -12,7 +12,7 @@ import com.arno.demo.life.annotation.AnnotationLearnActivity
 import com.arno.demo.life.conflict.ConflictLearnActivity
 import com.arno.demo.life.dinner.DinnerActivity
 import com.arno.demo.life.event.EventLearnActivity
-import com.arno.demo.life.fragment.FragmentLearnActivity
+import com.arno.demo.life.fragment.FragmentLearnActivityBase
 import com.arno.demo.life.handler.BlockLearnActivity
 import com.arno.demo.life.handler.HandlerLearnActivity
 import com.arno.demo.life.hook.HookLearnActivity
@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
         val c = LayoutInflater.from(this).inflate(R.layout.activity_main, null, false)
         c.apply {
             findViewById<Button>(R.id.btn_fragment).setOnClickListener {
-                startActivity(Intent(this@MainActivity, FragmentLearnActivity::class.java))
+                startActivity(Intent(this@MainActivity, FragmentLearnActivityBase::class.java))
             }
         }
         setContentView(c)

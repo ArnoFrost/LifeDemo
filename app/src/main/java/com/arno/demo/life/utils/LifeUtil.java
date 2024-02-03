@@ -2,15 +2,14 @@ package com.arno.demo.life.utils;
 
 import android.util.Log;
 
-import androidx.lifecycle.Lifecycle;
-import androidx.lifecycle.LifecycleObserver;
+import androidx.annotation.NonNull;
+import androidx.lifecycle.DefaultLifecycleObserver;
 import androidx.lifecycle.LifecycleOwner;
-import androidx.lifecycle.OnLifecycleEvent;
 
 /**
  * 自定义生命周期显示处理接口
  */
-public class LifeUtil implements LifecycleObserver {
+public class LifeUtil implements DefaultLifecycleObserver {
 
     private final String TAG;
     private final LifecycleOwner lifecycleOwner;
@@ -27,40 +26,37 @@ public class LifeUtil implements LifecycleObserver {
         }
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
-    private void onCreate() {
-        Log.d(TAG, "onCreate: ");
+    @Override
+    public void onCreate(@NonNull LifecycleOwner owner) {
+        Log.d(TAG, "onCreate() called with: owner = [" + owner + "]");
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_START)
-    private void onStart() {
-        Log.d(TAG, "onStart: ");
+    @Override
+    public void onStart(@NonNull LifecycleOwner owner) {
+        Log.d(TAG, "onStart() called with: owner = [" + owner + "]");
     }
 
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
-    private void onResume() {
-        Log.d(TAG, "onResume: ");
+    @Override
+    public void onResume(@NonNull LifecycleOwner owner) {
+        Log.d(TAG, "onResume() called with: owner = [" + owner + "]");
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
-    private void onPause() {
-        Log.d(TAG, "onPause: ");
+    @Override
+    public void onPause(@NonNull LifecycleOwner owner) {
+        Log.d(TAG, "onPause() called with: owner = [" + owner + "]");
     }
 
-    @OnLifecycleEvent(Lifecycle.Event.ON_STOP)
-    private void onStop() {
-        Log.d(TAG, "onStop: ");
+    @Override
+    public void onStop(@NonNull LifecycleOwner owner) {
+        Log.d(TAG, "onStop() called with: owner = [" + owner + "]");
     }
 
-
-    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-    private void onDestroy() {
-        Log.d(TAG, "onDestroy: ");
+    @Override
+    public void onDestroy(@NonNull LifecycleOwner owner) {
+        Log.d(TAG, "onDestroy() called with: owner = [" + owner + "]");
         if (lifecycleOwner != null) {
             lifecycleOwner.getLifecycle().removeObserver(this);
         }
     }
-
 
 }
