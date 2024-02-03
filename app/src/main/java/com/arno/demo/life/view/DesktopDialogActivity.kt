@@ -35,7 +35,7 @@ class DesktopDialogActivity : AppCompatActivity() {
         desktopView.hideDialog()
     }
 
-    private fun createPopupWindow(contentView: View): PopupWindow? {
+    private fun createPopupWindow(contentView: View): PopupWindow {
         contentView.measure(View.MeasureSpec.UNSPECIFIED, View.MeasureSpec.UNSPECIFIED)
         val popupWindow = PopupWindow(
             contentView,
@@ -64,4 +64,5 @@ class DesktopDialogActivity : AppCompatActivity() {
         })
         return popupWindow
     }
+
 }

@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ASMIdeaPluginConfiguration">
-    <asm skipDebug="false" skipFrames="false" skipCode="false" expandFrames="false" />
+    <asm skipDebug="true" skipFrames="true" skipCode="false" expandFrames="false" />
     <groovy codeStyle="LEGACY" />
   </component>
   <component name="CheckstyleConfigurable">
@@ -32,11 +31,14 @@
         <entry key="app/src/main/res/layout/activity_motion_scene1.xml" value="0.21197916666666666" />
         <entry key="app/src/main/res/layout/activity_motion_scene2.xml" value="0.21197916666666666" />
         <entry key="app/src/main/res/layout/activity_view_learn.xml" value="0.375" />
-        <entry key="app/src/main/res/layout/desktop_pop_layout.xml" value="0.2722222222222222" />
+        <entry key="app/src/main/res/layout/desktop_pop_layout.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/desktop_pop_layout_fix.xml" value="0.219435736677116" />
         <entry key="app/src/main/res/layout/desktop_pop_layout_scence1.xml" value="0.14361702127659576" />
         <entry key="app/src/main/res/layout/desktop_pop_layout_scene2.xml" value="0.13677811550151975" />
+        <entry key="app/src/main/res/layout/desktop_pop_ml_bottom.xml" value="0.4074074074074074" />
         <entry key="app/src/main/res/layout/item_text.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/item_text_view.xml" value="0.2953125" />
+        <entry key="app/src/main/res/xml/desktop_layout_scene1.xml" value="0.2953125" />
       </map>
     </option>
   </component>
@@ -46,7 +48,7 @@
     <option name="priority" value="Medium" />
     <option name="excludeFilter" value="" />
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="Android API 28 Platform" project-jdk-type="Android SDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="zulu-11" project-jdk-type="JavaSDK" />
   <component name="SuppressionsComponent">
     <option name="suppComments" value="[]" />
   </component>

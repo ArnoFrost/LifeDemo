@@ -22,6 +22,7 @@ import com.arno.demo.life.messenger.MessengerLearnActivity
 import com.arno.demo.life.motion.MotionActivity
 import com.arno.demo.life.pref.ViewPrefLearnActivity
 import com.arno.demo.life.router.RouterLearnActivity
+import com.arno.demo.life.rxjava.RxJavaActivity
 import com.arno.demo.life.share.ShareRootActivity
 import com.arno.demo.life.task.TaskLearnActivity
 import com.arno.demo.life.view.DesktopDialogActivity
@@ -40,6 +41,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(c)
     }
 
+    fun goToRxJava(view: View?) {
+        startActivity(Intent(this, RxJavaActivity::class.java))
+    }
     fun goToDialog(view: View?) {
         startActivity(Intent(this, DesktopDialogActivity::class.java))
     }

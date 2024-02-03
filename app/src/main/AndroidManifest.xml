@@ -17,6 +17,9 @@
             android:name=".fragment.FragmentLearnActivity"
             android:exported="false" />
         <activity
+            android:name=".rxjava.RxJavaActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.DesktopDialogActivity"
             android:exported="false" />
         <activity

@@ -3,6 +3,7 @@ package com.arno.demo.life.view
 import android.content.Context
 import android.graphics.Color
 import android.util.AttributeSet
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import androidx.appcompat.widget.LinearLayoutCompat
@@ -35,9 +36,11 @@ class DesktopPopWindow @JvmOverloads constructor(
             setBackgroundColor(Color.BLUE)
         }
         inflate(context, R.layout.desktop_pop_layout, this).apply {
-            ivArrow = findViewById(R.id.iv_arrow)
+            ivArrow = findViewById<ImageView?>(R.id.iv_arrow).apply {
+                setOnClickListener { hideDialog() }
+            }
             rv = findViewById(R.id.rv)
-            clTop = findViewById(R.id.cl_top)
+            clTop = findViewById(R.id.top_bar)
             bottomBar = findViewById(R.id.bottom_bar)
             rootMotionView = findViewById(R.id.desktop_dialog)
         }
@@ -72,6 +75,29 @@ class DesktopPopWindow @JvmOverloads constructor(
                         motionLayout.visibility = View.GONE
                     }
                     else -> {
+                    }
+                }
+            }
+
+            override fun onTransitionChange(
+                motionLayout: MotionLayout?,
+                startId: Int,
+                endId: Int,
+                progress: Float
+            ) {
+                super.onTransitionChange(motionLayout, startId, endId, progress)
+                Log.d(
+                    "Arno",
+                    "onTransitionChange() called with: motionLayout = $motionLayout, startId = $startId, endId = $endId, progress = $progress"
+                )
+                if (progress == 0F) {
+                    when (motionLayout?.currentState) {
+                        // 回归到播放场景后隐藏布局
+                        R.id.start -> {
+                            motionLayout.visibility = View.GONE
+                        }
+                        else -> {
+                        }
                     }
                 }
             }
