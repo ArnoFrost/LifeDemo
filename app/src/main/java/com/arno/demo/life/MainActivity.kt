@@ -41,6 +41,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(c)
     }
 
+    fun goToRecyclerCache(view: View?) {
+        startActivity(Intent(this, RecyclerCacheActivity::class.java))
+    }
     fun goToRxJava(view: View?) {
         startActivity(Intent(this, RxJavaActivity::class.java))
     }
