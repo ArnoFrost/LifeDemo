@@ -12,9 +12,9 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public abstract class BaseTaskActivity extends AppCompatActivity {
-    protected final String TAG = this.getClass().getSimpleName() + "-->" + hashCode();
+    String TAG = this.getClass().getSimpleName() + "-->" + hashCode();
 
-    private static final boolean isLogDebug = false;
+    private static final boolean isLogDebug = true;
 
     public abstract void doStart(View view);
 

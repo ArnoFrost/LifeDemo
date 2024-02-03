@@ -1,12 +1,14 @@
 package com.arno.demo.life.fragment
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import com.arno.demo.life.R
 import com.arno.demo.life.fragment.ui.main.FragmentLearnFragment
+import com.arno.demo.life.task.BaseTaskActivity
 
-class FragmentLearnActivity : AppCompatActivity() {
+class FragmentLearnActivity : BaseTaskActivity() {
 
+    val TAG: String = "FragmentLearnActivity"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_fragment_learn)
@@ -15,5 +17,9 @@ class FragmentLearnActivity : AppCompatActivity() {
                 .replace(R.id.container, FragmentLearnFragment.newInstance())
                 .commitNow()
         }
+    }
+
+    override fun doStart(view: View?) {
+
     }
 }

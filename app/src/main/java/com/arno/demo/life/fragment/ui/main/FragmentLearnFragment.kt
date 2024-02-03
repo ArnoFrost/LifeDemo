@@ -14,6 +14,8 @@ class FragmentLearnFragment : BaseLifeFragment() {
     }
 
     private lateinit var viewModel: MainViewModel
+    override val TAG: String
+        get() = "FragmentLearnFragment"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

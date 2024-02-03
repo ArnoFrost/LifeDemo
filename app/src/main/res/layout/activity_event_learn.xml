@@ -23,7 +23,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:onClick="customRegist"
+                android:onClick="customRegister"
                 android:text="自定义订阅事件" />
 
             <Button
@@ -31,7 +31,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:onClick="customUnregist"
+                android:onClick="customUnregister"
                 android:text="custom取消订阅事件" />
 
             <Button

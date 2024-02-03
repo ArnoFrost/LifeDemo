@@ -21,13 +21,6 @@ import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.Random;
 
-import io.reactivex.Flowable;
-import io.reactivex.FlowableSubscriber;
-import io.reactivex.Observable;
-import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.annotations.NonNull;
-import io.reactivex.schedulers.Schedulers;
-
 public class EventLearnActivity extends AppCompatActivity {
     private static final String TAG = "EventLearnActivity";
 
@@ -98,12 +91,12 @@ public class EventLearnActivity extends AppCompatActivity {
      *
      * @param view
      */
-    public void customRegist(View view) {
+    public void customRegister(View view) {
         ToastUtils.showShort("自定义 订阅事件");
         observable.addWeXinUser(observer);
     }
 
-    public void customUnregist(View view) {
+    public void customUnregister(View view) {
         boolean flag = observable.removeWeXinUser(observer);
         ToastUtils.showShort("自定义 取消订阅事件 %b", flag);
     }
