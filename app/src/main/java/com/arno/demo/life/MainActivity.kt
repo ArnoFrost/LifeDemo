@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.arno.demo.life.annotation.AnnotationLearnActivity
 import com.arno.demo.life.conflict.ConflictLearnActivity
+import com.arno.demo.life.coroutine.CoroutineActivity
 import com.arno.demo.life.dinner.DinnerActivity
 import com.arno.demo.life.event.EventLearnActivity
 import com.arno.demo.life.fragment.FragmentLearnActivityBase
@@ -41,12 +42,18 @@ class MainActivity : AppCompatActivity() {
         setContentView(c)
     }
 
+    fun goToCoroutine(view: View?) {
+        startActivity(Intent(this, CoroutineActivity::class.java))
+    }
+
     fun goToRecyclerCache(view: View?) {
         startActivity(Intent(this, RecyclerCacheActivity::class.java))
     }
+
     fun goToRxJava(view: View?) {
         startActivity(Intent(this, RxJavaActivity::class.java))
     }
+
     fun goToDialog(view: View?) {
         startActivity(Intent(this, DesktopDialogActivity::class.java))
     }
