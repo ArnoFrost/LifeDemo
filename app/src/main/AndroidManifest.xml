@@ -14,66 +14,66 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LifeDemo">
         <activity
-            android:name=".network.NetworkLearnActivity"
+            android:name=".project.network.NetworkLearnActivity"
             android:exported="false" />
         <activity
-            android:name=".coroutine.CoroutineActivity"
+            android:name=".project.coroutine.CoroutineActivity"
             android:exported="false" />
         <activity
-            android:name=".RecyclerCacheActivity"
+            android:name=".sys.recyclerview.RecyclerCacheActivity"
             android:exported="false" />
         <activity
-            android:name=".fragment.FragmentLearnActivityBase"
+            android:name=".sys.fragment.FragmentLearnActivityBase"
             android:exported="false" />
         <activity
-            android:name=".rxjava.RxJavaActivity"
+            android:name=".project.rxjava.RxJavaActivity"
             android:exported="false" />
         <activity
-            android:name=".view.DesktopDialogActivity"
+            android:name=".base.view.DesktopDialogActivity"
             android:exported="false" />
         <activity
-            android:name=".view.TestConstraintlayoutActivity"
+            android:name=".base.view.TestConstraintlayoutActivity"
             android:exported="true" />
         <activity
-            android:name=".motion.MotionActivity"
+            android:name=".work.motion.MotionActivity"
             android:exported="true" />
         <activity
-            android:name=".dinner.DinnerActivity"
+            android:name=".work.dinner.DinnerActivity"
             android:theme="@style/DinnerTheme" />
         <activity
-            android:name=".share.ShareCActivity"
+            android:name=".work.share.ShareCActivity"
             android:theme="@style/NoTitleTranslucentTheme" />
         <activity
-            android:name=".share.ShareBActivity"
+            android:name=".work.share.ShareBActivity"
             android:theme="@style/NoTitleTranslucentTheme" />
         <activity
-            android:name=".share.ShareRootActivity"
+            android:name=".work.share.ShareRootActivity"
             android:launchMode="singleTask" />
-        <activity android:name=".hook.HookLearnActivity" />
-        <activity android:name=".handler.BlockLearnActivity" />
-        <activity android:name=".pref.ViewPrefLearnActivity" />
-        <activity android:name=".router.RouterLearnActivity" />
-        <activity android:name=".messenger.MessengerLearnActivity" />
+        <activity android:name=".other.hook.HookLearnActivity" />
+        <activity android:name=".sys.handler.BlockLearnActivity" />
+        <activity android:name=".sys.pref.ViewPrefLearnActivity" />
+        <activity android:name=".project.router.RouterLearnActivity" />
+        <activity android:name=".sys.messenger.MessengerLearnActivity" />
 
         <service
-            android:name=".messenger.MyService"
+            android:name=".sys.messenger.MyService"
             android:enabled="true"
             android:exported="true" />
         <service
-            android:name=".router.module.main.MainRemoteService"
+            android:name=".project.router.module.main.MainRemoteService"
             android:exported="true" />
 
-        <activity android:name=".handler.HandlerLearnActivity" />
-        <activity android:name=".annotation.AnnotationLearnActivity" />
-        <activity android:name=".event.EventLearnActivity" />
-        <activity android:name=".loader.ClassLoaderActivity" />
-        <activity android:name=".conflict.Scroller_Recycler_Same_Outer" />
-        <activity android:name=".conflict.ConflictLearnActivity" />
-        <activity android:name=".view.ViewLearnActivity" />
-        <activity android:name=".task.TaskLearnActivity" />
-        <activity android:name=".life.B_Activity" />
-        <activity android:name=".life.LifeLearnActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".sys.handler.HandlerLearnActivity" />
+        <activity android:name=".other.annotation.AnnotationLearnActivity" />
+        <activity android:name=".project.event.EventLearnActivity" />
+        <activity android:name=".sys.loader.ClassLoaderActivity" />
+        <activity android:name=".sys.conflict.Scroller_Recycler_Same_Outer" />
+        <activity android:name=".sys.conflict.ConflictLearnActivity" />
+        <activity android:name=".base.view.ViewLearnActivity" />
+        <activity android:name=".sys.task.TaskLearnActivity" />
+        <activity android:name=".sys.life.B_Activity" />
+        <activity android:name=".sys.life.LifeLearnActivity" />
+        <activity android:name=".main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -81,25 +81,25 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".life.B_Translate_Activity"
+            android:name=".sys.life.B_Translate_Activity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity
-            android:name=".life.B_Translate_Auto_Activity"
+            android:name=".sys.life.B_Translate_Auto_Activity"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <activity android:name=".life.B_WithTask_Activity" />
-        <activity android:name=".task.StandardActivity" />
+        <activity android:name=".sys.life.B_WithTask_Activity" />
+        <activity android:name=".sys.task.StandardActivity" />
         <activity
-            android:name=".task.SingleTopActivity"
+            android:name=".sys.task.SingleTopActivity"
             android:launchMode="singleTop" />
         <activity
-            android:name=".task.SingleInstanceActivity"
+            android:name=".sys.task.SingleInstanceActivity"
             android:launchMode="singleInstance" />
         <activity
-            android:name=".task.SingleTaskActivity"
+            android:name=".sys.task.SingleTaskActivity"
             android:allowTaskReparenting="true"
             android:launchMode="singleTask"
             android:taskAffinity="com.my.single" />
-        <activity android:name=".conflict.Scroller_Recycler_Same_Inner" />
+        <activity android:name=".sys.conflict.Scroller_Recycler_Same_Inner" />
     </application>
 
 </manifest>

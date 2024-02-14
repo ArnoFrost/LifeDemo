@@ -6,9 +6,9 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".view.ViewLearnActivity">
+    tools:context=".base.view.ViewLearnActivity">
 
-    <com.arno.demo.life.widget.SwitchButton
+    <com.arno.demo.life.base.widget.SwitchButton
         android:id="@+id/custom_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
@@ -42,7 +42,7 @@
             android:text="测试" />
     </LinearLayout>
 
-    <com.arno.demo.life.view.CView
+    <com.arno.demo.life.base.view.CView
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <!--    确切的情况 1-->

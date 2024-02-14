@@ -9,7 +9,7 @@
     app:layoutDescription="@xml/desktop_layout_scene1"
     app:motionDebug="SHOW_PATH"
     app:showPaths="true"
-    tools:context=".view.DesktopDialogActivity"
+    tools:context=".base.view.DesktopDialogActivity"
     tools:visibility="visible">
     <!--        app:layoutDescription="@xml/desktop_pop_layout_scene"
     -->
@@ -34,7 +34,7 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="ContentDescription" />
 
-        <com.arno.demo.life.view.OverScrollRecyclerView
+        <com.arno.demo.life.base.view.OverScrollRecyclerView
             android:id="@+id/rv"
             android:layout_width="0dp"
             android:layout_height="0dp"

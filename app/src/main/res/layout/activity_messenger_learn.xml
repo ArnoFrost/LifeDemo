@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".messenger.MessengerLearnActivity">
+    tools:context=".sys.messenger.MessengerLearnActivity">
 
     <Button
         android:layout_width="wrap_content"

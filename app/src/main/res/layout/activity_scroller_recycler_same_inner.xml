@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".conflict.Scroller_Recycler_Same_Outer">
+    tools:context=".sys.conflict.Scroller_Recycler_Same_Outer">
 
     <ScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.arno.demo.life.conflict.view.inner.MyLinearLayout
+        <com.arno.demo.life.sys.conflict.view.inner.MyLinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -26,7 +26,7 @@
                 android:text="HEADER"
                 android:textSize="20dp" />
 
-            <com.arno.demo.life.conflict.view.inner.MyRecyclerViewBothVertical
+            <com.arno.demo.life.sys.conflict.view.inner.MyRecyclerViewBothVertical
                 android:id="@+id/rvView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -46,7 +46,7 @@
                 android:gravity="center"
                 android:text="Footer"
                 android:textSize="20dp" />
-        </com.arno.demo.life.conflict.view.inner.MyLinearLayout>
+        </com.arno.demo.life.sys.conflict.view.inner.MyLinearLayout>
 
 
     </ScrollView>

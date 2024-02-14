@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".router.RouterLearnActivity">
+    tools:context=".project.router.RouterLearnActivity">
 
     <Button
         android:layout_width="wrap_content"

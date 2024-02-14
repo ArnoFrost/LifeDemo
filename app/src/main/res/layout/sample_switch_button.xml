@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.arno.demo.life.widget.SwitchButton
+    <com.arno.demo.life.base.widget.SwitchButton
         style="@style/Widget.Theme.LifeDemo.MyView"
         android:layout_width="300dp"
         android:layout_height="300dp"

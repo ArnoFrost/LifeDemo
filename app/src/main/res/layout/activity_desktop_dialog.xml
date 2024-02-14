@@ -5,7 +5,7 @@
     android:id="@+id/layout_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.DesktopDialogActivity">
+    tools:context=".base.view.DesktopDialogActivity">
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_show_dialog"
@@ -30,7 +30,7 @@
         app:layout_constraintStart_toStartOf="@+id/btn_show_dialog"
         app:layout_constraintTop_toBottomOf="@+id/btn_show_dialog" />
 
-    <com.arno.demo.life.view.DesktopPopWindow
+    <com.arno.demo.life.base.view.DesktopPopWindow
         android:id="@+id/desktop_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".pref.ViewPrefLearnActivity">
+    tools:context=".sys.pref.ViewPrefLearnActivity">
 
     <TextView
         android:id="@+id/tvTitle"

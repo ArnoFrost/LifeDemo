@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".handler.BlockLearnActivity">
+    tools:context=".sys.handler.BlockLearnActivity">
 
     <Button
         android:layout_width="wrap_content"

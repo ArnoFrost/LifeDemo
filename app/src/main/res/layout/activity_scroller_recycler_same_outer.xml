@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".conflict.Scroller_Recycler_Same_Outer">
+    tools:context=".sys.conflict.Scroller_Recycler_Same_Outer">
     <!--外部拦截 则只处理父布局-->
     <!--    <com.arno.demo.life.conflict.view.outer.MyScrollerVerticalHorizontal-->
-    <com.arno.demo.life.conflict.view.outer.MyScrollerBothVertical
+    <com.arno.demo.life.sys.conflict.view.outer.MyScrollerBothVertical
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -44,6 +44,6 @@
         </LinearLayout>
 
 
-    </com.arno.demo.life.conflict.view.outer.MyScrollerBothVertical>
+    </com.arno.demo.life.sys.conflict.view.outer.MyScrollerBothVertical>
 
 </LinearLayout>

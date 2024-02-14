@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".life.LifeLearnActivity">
+    tools:context=".sys.life.LifeLearnActivity">
 
     <Button
         android:id="@+id/btn_start_normal_b"
