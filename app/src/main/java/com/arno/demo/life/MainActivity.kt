@@ -21,6 +21,7 @@ import com.arno.demo.life.life.LifeLearnActivity
 import com.arno.demo.life.loader.ClassLoaderActivity
 import com.arno.demo.life.messenger.MessengerLearnActivity
 import com.arno.demo.life.motion.MotionActivity
+import com.arno.demo.life.network.NetworkLearnActivity
 import com.arno.demo.life.pref.ViewPrefLearnActivity
 import com.arno.demo.life.router.RouterLearnActivity
 import com.arno.demo.life.rxjava.RxJavaActivity
@@ -40,6 +41,10 @@ class MainActivity : AppCompatActivity() {
             }
         }
         setContentView(c)
+    }
+
+    fun goToNetWorkLearn(view:View?){
+        startActivity(Intent(this, NetworkLearnActivity::class.java))
     }
 
     fun goToCoroutine(view: View?) {

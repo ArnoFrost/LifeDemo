@@ -12,6 +12,14 @@
         android:orientation="vertical">
 
         <Button
+            android:id="@+id/btn_network"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:onClick="goToNetWorkLearn"
+            android:text="网络请求学习" />
+
+        <Button
             android:id="@+id/btn_coroutine"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
