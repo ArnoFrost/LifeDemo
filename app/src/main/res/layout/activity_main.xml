@@ -1,198 +1,267 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:layout_width="match_parent"
+
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical">
+        android:text="源码工程学习" />
 
-        <Button
-            android:id="@+id/btn_network"
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:onClick="goToNetWorkLearn"
-            android:text="网络请求学习" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btn_coroutine"
+            <Button
+                android:id="@+id/btn_network"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:onClick="goToNetWorkLearn"
+                android:text="网络请求学习" />
+
+
+            <Button
+                android:id="@+id/btn_rxjava"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:onClick="goToRxJava"
+                android:text="rxjava 练习" />
+
+            <Button
+                android:id="@+id/btn_coroutine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:onClick="goToCoroutine"
+                android:text="协程练习" />
+
+
+            <Button
+                android:id="@+id/btn_event"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:onClick="goToEvent"
+                android:text="事件发送库学习" />
+
+
+            <Button
+                android:id="@+id/btn_annotation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:onClick="goToAnnotation"
+                android:text="注解处理器学习" />
+
+            <Button
+                android:id="@+id/btn_router"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:onClick="goToRouter"
+                android:text="路由学习" />
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="系统机制学习" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:onClick="goToCoroutine"
-            android:text="协程练习" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btn_rv"
+            <Button
+                android:id="@+id/btn_life"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:onClick="goToLife"
+                android:text="生命周期演示" />
+
+            <Button
+                android:id="@+id/btn_task"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:onClick="goToTask"
+                android:text="启动模式分析" />
+
+
+            <Button
+                android:id="@+id/btn_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:onClick="goToView"
+                android:text="绘制流程分析" />
+
+            <Button
+                android:id="@+id/btn_rv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:onClick="goToRecyclerCache"
+                android:text="Recycler缓存练习" />
+
+
+            <Button
+                android:id="@+id/btn_fragment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Fragment重建学习" />
+
+
+            <Button
+                android:id="@+id/btn_conflict"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:onClick="goToConflict"
+                android:text="滑动冲突解决" />
+
+
+            <Button
+                android:id="@+id/btn_class"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:onClick="goToLoader"
+                android:text="类加载器学习" />
+
+            <Button
+                android:id="@+id/btn_handler"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:onClick="goToHandler"
+                android:text="Handler机制学习" />
+
+            <Button
+                android:id="@+id/btn_messenger"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:onClick="goToMessenger"
+                android:text="Messenger学习" />
+
+            <Button
+                android:id="@+id/btn_block"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:onClick="goToBlock"
+                android:text="Block学习" />
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="其他" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:onClick="goToRecyclerCache"
-            android:text="Recycler缓存练习" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btn_rxjava"
+            <Button
+                android:id="@+id/btn_test_const"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:onClick="goToConstTest"
+                android:text="ConstraintLayout测试" />
+
+            <Button
+                android:id="@+id/btn_pref_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:onClick="goToViewPref"
+                android:text="View加载优化学习" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="工作demo" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:onClick="goToRxJava"
-            android:text="rxjava 练习" />
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btn_fragment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="Fragment重建学习" />
-
-        <Button
-            android:id="@+id/btn_dialog"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:onClick="goToDialog"
-            android:text="直达Dialog效果" />
-
-        <Button
-            android:id="@+id/btn_motion"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:onClick="goToMotion"
-            android:text="MotionLayout" />
-
-        <Button
-            android:id="@+id/btn_test_const"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:onClick="goToConstTest"
-            android:text="ConstraintLayout测试" />
-
-        <Button
-            android:id="@+id/btn_dinner"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:onClick="goToDinner"
-            android:text="干饭人" />
-
-        <Button
-            android:id="@+id/btn_share"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:onClick="goToShare"
-            android:text="共享动画练习" />
-
-        <Button
-            android:id="@+id/btn_hook"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:onClick="goToHook"
-            android:text="Hook学习" />
+            <Button
+                android:id="@+id/btn_dialog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:onClick="goToDialog"
+                android:text="直达Dialog效果" />
 
 
-        <Button
-            android:id="@+id/btn_block"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:onClick="goToBlock"
-            android:text="Block学习" />
+            <Button
+                android:id="@+id/btn_motion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:onClick="goToMotion"
+                android:text="MotionLayout" />
 
-        <Button
-            android:id="@+id/btn_life"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:onClick="goToLife"
-            android:text="生命周期演示" />
+            <Button
+                android:id="@+id/btn_dinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:onClick="goToDinner"
+                android:text="干饭人" />
 
-        <Button
-            android:id="@+id/btn_task"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:onClick="goToTask"
-            android:text="启动模式分析" />
 
-        <Button
-            android:id="@+id/btn_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:onClick="goToView"
-            android:text="绘制流程分析" />
+            <Button
+                android:id="@+id/btn_share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:onClick="goToShare"
+                android:text="共享动画练习" />
+        </LinearLayout>
 
-        <Button
-            android:id="@+id/btn_conflict"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:onClick="goToConflict"
-            android:text="滑动冲突解决" />
+    </HorizontalScrollView>
 
-        <Button
-            android:id="@+id/btn_class"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:onClick="goToLoader"
-            android:text="类加载器学习" />
 
-        <Button
-            android:id="@+id/btn_event"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:onClick="goToEvent"
-            android:text="事件发送库学习" />
+</androidx.appcompat.widget.LinearLayoutCompat>
 
-        <Button
-            android:id="@+id/btn_annotation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:onClick="goToAnnotation"
-            android:text="注解处理器学习" />
-
-        <Button
-            android:id="@+id/btn_handler"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:onClick="goToHandler"
-            android:text="Handler机制学习" />
-
-        <Button
-            android:id="@+id/btn_messenger"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:onClick="goToMessenger"
-            android:text="Messenger学习" />
-
-        <Button
-            android:id="@+id/btn_router"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:onClick="goToRouter"
-            android:text="路由学习" />
-
-        <Button
-            android:id="@+id/btn_pref_view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:onClick="goToViewPref"
-            android:text="View加载优化学习" />
-    </androidx.appcompat.widget.LinearLayoutCompat>
-</ScrollView>
