@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.KeyEvent
 import android.view.LayoutInflater
-import android.widget.Button
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,6 +12,7 @@ import com.arno.demo.life.R
 import com.arno.demo.life.base.utils.setOnItemClickListener
 import com.arno.demo.life.other.annotation.AnnotationLearnActivity
 import com.arno.demo.life.other.hook.HookLearnActivity
+import com.arno.demo.life.other.proxy.ProxyLearnActivity
 import com.arno.demo.life.project.coroutine.CoroutineActivity
 import com.arno.demo.life.project.event.EventLearnActivity
 import com.arno.demo.life.project.network.NetworkLearnActivity
@@ -52,6 +52,7 @@ class MainActivity : AppCompatActivity() {
 
         private const val ID_ANNOTATION_LEARN = 300
         private const val ID_HOOK_LEARN = 301
+        private const val ID_PROXY_LEARN = 302
 
         private const val ID_DINNER_MAN = 400
         private const val ID_MOTION_LAYOUT = 401
@@ -77,6 +78,7 @@ class MainActivity : AppCompatActivity() {
 
         Category("注解学习", ID_ANNOTATION_LEARN, CategoryType.Other),
         Category("Hook学习", ID_HOOK_LEARN, CategoryType.Other),
+        Category("代理学习", ID_PROXY_LEARN, CategoryType.Other),
 
         Category("干饭人", ID_DINNER_MAN, CategoryType.Work),
         Category("MotionLayout", ID_MOTION_LAYOUT, CategoryType.Work),
@@ -93,7 +95,7 @@ class MainActivity : AppCompatActivity() {
                 LinearLayoutManager(this@MainActivity, LinearLayoutManager.HORIZONTAL, false)
             adapter = CategoryAdapter(categoryData.filter { it.type == CategoryType.Project })
             setOnItemClickListener { view, position ->
-                onItemClickListener.onItemClick(categoryData[position].id)
+                onItemClickListener.onItemClick(categoryData.filter { it.type == CategoryType.Project }[position].id)
             }
         }
 
@@ -102,7 +104,7 @@ class MainActivity : AppCompatActivity() {
                 LinearLayoutManager(this@MainActivity, LinearLayoutManager.HORIZONTAL, false)
             adapter = CategoryAdapter(categoryData.filter { it.type == CategoryType.Sys })
             setOnItemClickListener { view, position ->
-                onItemClickListener.onItemClick(categoryData[position].id)
+                onItemClickListener.onItemClick(categoryData.filter { it.type == CategoryType.Sys }[position].id)
             }
         }
 
@@ -111,7 +113,7 @@ class MainActivity : AppCompatActivity() {
                 LinearLayoutManager(this@MainActivity, LinearLayoutManager.HORIZONTAL, false)
             adapter = CategoryAdapter(categoryData.filter { it.type == CategoryType.Other })
             setOnItemClickListener { view, position ->
-                onItemClickListener.onItemClick(categoryData[position].id)
+                onItemClickListener.onItemClick(categoryData.filter { it.type == CategoryType.Other }[position].id)
             }
         }
 
@@ -120,7 +122,7 @@ class MainActivity : AppCompatActivity() {
                 LinearLayoutManager(this@MainActivity, LinearLayoutManager.HORIZONTAL, false)
             adapter = CategoryAdapter(categoryData.filter { it.type == CategoryType.Work })
             setOnItemClickListener { view, position ->
-                onItemClickListener.onItemClick(categoryData[position].id)
+                onItemClickListener.onItemClick(categoryData.filter { it.type == CategoryType.Work }[position].id)
             }
         }
 
@@ -157,6 +159,7 @@ class MainActivity : AppCompatActivity() {
 
                 ID_ANNOTATION_LEARN -> navigateToActivity(AnnotationLearnActivity::class.java)
                 ID_HOOK_LEARN -> navigateToActivity(HookLearnActivity::class.java)
+                ID_PROXY_LEARN -> navigateToActivity(ProxyLearnActivity::class.java)
 
                 ID_DINNER_MAN -> navigateToActivity(DinnerActivity::class.java)
                 ID_MOTION_LAYOUT -> navigateToActivity(MotionActivity::class.java)
