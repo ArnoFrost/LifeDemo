@@ -1,9 +1,12 @@
 package com.arno.demo.life.base.utils;
 
 import android.content.res.Resources;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.ColorInt;
 
 import java.util.ArrayDeque;
 
@@ -147,5 +150,14 @@ public class ViewUtil {
 
     public static float getDensityDpi() {
         return Resources.getSystem().getDisplayMetrics().densityDpi;
+    }
+
+    @ColorInt
+    public static int adjustAlpha(@ColorInt int color, float factor) {
+        int alpha = Math.round(Color.alpha(color) * factor);
+        int red = Color.red(color);
+        int green = Color.green(color);
+        int blue = Color.blue(color);
+        return Color.argb(alpha, red, green, blue);
     }
 }

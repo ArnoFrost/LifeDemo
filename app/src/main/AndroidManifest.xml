@@ -104,6 +104,8 @@
             android:launchMode="singleTask"
             android:taskAffinity="com.my.single" />
         <activity android:name=".sys.conflict.Scroller_Recycler_Same_Inner" />
+
+        <activity android:name=".work.share.GradientActivity" />
     </application>
 
 </manifest>

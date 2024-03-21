@@ -29,6 +29,7 @@ import com.arno.demo.life.sys.recyclerview.RecyclerCacheActivity
 import com.arno.demo.life.sys.task.TaskLearnActivity
 import com.arno.demo.life.work.dinner.DinnerActivity
 import com.arno.demo.life.work.motion.MotionActivity
+import com.arno.demo.life.work.share.GradientActivity
 import com.arno.demo.life.work.share.ShareRootActivity
 
 class MainActivity : AppCompatActivity() {
@@ -57,6 +58,7 @@ class MainActivity : AppCompatActivity() {
         private const val ID_DINNER_MAN = 400
         private const val ID_MOTION_LAYOUT = 401
         private const val ID_SHARE_ANIMATION = 402
+        private const val ID_GRADIENT_TEST = 403
     }
 
     private val categoryData = listOf(
@@ -83,6 +85,7 @@ class MainActivity : AppCompatActivity() {
         Category("干饭人", ID_DINNER_MAN, CategoryType.Work),
         Category("MotionLayout", ID_MOTION_LAYOUT, CategoryType.Work),
         Category("共享动画", ID_SHARE_ANIMATION, CategoryType.Work),
+        Category("渐变动画", ID_GRADIENT_TEST, CategoryType.Work),
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -164,6 +167,7 @@ class MainActivity : AppCompatActivity() {
                 ID_DINNER_MAN -> navigateToActivity(DinnerActivity::class.java)
                 ID_MOTION_LAYOUT -> navigateToActivity(MotionActivity::class.java)
                 ID_SHARE_ANIMATION -> navigateToActivity(ShareRootActivity::class.java)
+                ID_GRADIENT_TEST -> navigateToActivity(GradientActivity::class.java)
             }
         }
     }
